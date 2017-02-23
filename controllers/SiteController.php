@@ -154,4 +154,13 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    /**
+     * Displays modelos page.
+     *
+     * @return string
+     */
+    public function actionModelos()
+    {
+        return $this->render('modelos');
+    }
 }

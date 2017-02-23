@@ -235,6 +235,44 @@ input[placeholder]:-ms-placeholder{ color:#000000; font-size:36px;}
 }
 /******************************* FIN NEWSLETTER*/
 
+/******************************* FOOTER*/
+.footer{
+    margin-top: 72px !important;
+
+}
+.redes h4, .sucursales h5, .sucursales h4{
+    color: darkred;
+}
+.redes img{
+    margin-left: 15px;
+    width: 20%;
+}
+.data_fiscal{
+    width: 24% !important;
+    margin-top: 50px;
+}
+/******************************* FIN FOOTER*/
+
+
+/**************************** PAGINA NUESTROS MODELOS **********************************************************************/
+
+.nuestros_modelos h2{
+    color: darkred;
+    text-align: center;
+}
+.nuestros_modelos .col-md-3{
+    padding-left: 0px !important;
+    padding-right: 4px !important;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.nuestros_modelos .col-md-3 img{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/**************************** FIN PAGINA NUESTROS MODELOS **********************************************************************/
+
 
 
 

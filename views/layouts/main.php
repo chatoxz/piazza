@@ -32,13 +32,13 @@ PiazzaAsset::register($this);
 
     <nav class="" data-spy="affix" data-offset-top="177">
         <ul class="sf-menu">
-            <li><a href="index.php">INICIO </a></li>
+            <li><a href="index">INICIO </a></li>
             <li><a href="#">NOSOTROS </a></li>
-            <li><a href="#">MODELOS </a></li>
-            <li><a href="#">PLANES </a></li>
-            <li><a href="#">POSTVENTA </a></li>
-            <li><a href="#">CONTACTO </a></li>
-            <li><a href="#">NOTICIAS </a></li>
+            <li><a href="/site/modelos">MODELOS </a></li>
+            <li><a href="/site/planes">PLANES </a></li>
+            <li><a href="/site/postventa">POSTVENTA </a></li>
+            <li><a href="/site/contacto">CONTACTO </a></li>
+            <li><a href="/site/noticias">NOTICIAS </a></li>
             <li><a href="#">BUSCAR </a></li>
         </ul>
     </nav>
@@ -49,6 +49,37 @@ PiazzaAsset::register($this);
 </div>
 
 <footer class="footer">
+    <div class="col-md-12">
+        <div class="col-md-4 redes">
+            <h4> SEGUINOS EN NUESTRAS REDES</h4>
+            <img src="/images/icono_face.png" alt="">
+            <img src="/images/icono_instagram.png" alt="">
+            <img src="/images/icono_youtube.png" alt="">
+            <img class="data_fiscal" src="/images/data_fiscal.png" alt="">
+        </div>
+        <div class="col-md-4 sucursales">
+            <p><h4> CASA CENTRAL</h4>
+                <span>San Martin 1172 | San Miguel de Tucumán | Tucumán </br>
+                    Tel 03814306261</span>
+            </p>
+            <p><h5 class="titulo_sucursales"> Plan de Ahorro </h5>
+                <span>Oficina Administracion 4215235 </br>
+                    Ventas Plan de ahorro 4216206
+                </span>
+            </p>
+            <p><h4 class="titulo_sucursales"> Sucursal Yerba Buena</h4>
+                <span>Av. Aconquija 1117 | Yerba Buena | Tucuman </br>
+                Tel 03814255233 ó 4258625</span>
+            </p>
+            <p><h4 class="titulo_sucursales"> CASA CENTRAL</h4>
+                <span>Don Bosco 2519 / 2525, San Miguel de Tucumán </br>
+                Tel 0381423332 | Tel 03814527751/52</span>
+            </p>
+        </div>
+        <div class="col-md-4 google_maps">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2908.6839682920095!2d-65.21604128630598!3d-26.827707725316806!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8374fc51d90cf2a2!2sPiazza+S.A.!5e0!3m2!1ses-419!2sar!4v1487876890889" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
     <!--<div class="container">
         <p class="pull-left">&copy; My Company <?php //echo date('Y') ?></p>
         <p class="pull-right"><?php //echo Yii::powered() ?></p>
