@@ -1,0 +1,249 @@
+.wrap{
+    z-index: 0;
+    position: relative;
+}
+
+/*PARA QUE FUNCIONE LA BARRA */
+.affix {
+    top: 0;
+    width: 100%;
+}
+.affix + .logos {
+    padding-top: 70px;
+}
+
+/*PARA QUE LA PAGINA SEA DE PANTALLA COMPLETA*/
+.container-fluid, .logos{
+    padding: 0px !important;
+}
+
+a{
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.logos{
+    display: block;
+    height: 140px;
+    margin-top: 40px;
+}
+.img_logo_piazza{
+    max-height: 95px;
+    margin-left: 5%;
+    width: auto;
+    float: left;
+}
+.img_logo_fiat{
+    max-height: 95px;
+    width: auto;
+    float: right;
+    margin-right: 5%;
+}
+
+.site-index{
+    padding: 0px !important;
+}
+
+.img_home{
+    z-index: -1;
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+/***************************CSS DEL NAV BAR*/
+
+.sf-menu, .sf-menu * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.sf-menu{
+    width: 100%;
+    background-color: white;
+    float: left;
+}
+
+.sf-menu ul {
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    z-index: 99;
+}
+.sf-menu li {
+    position: relative;
+    float: left;
+    background: white;
+    -webkit-transition:background 1s;
+    -moz-transition:background 1s;
+    -o-transition:background 1s;
+    transition:background 1s;
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    width: 12.50%;
+    text-align: center;
+    border-left: none;
+    height: 37px;
+    color: black;
+    padding-top: 7px;
+}
+.sf-menu li:hover{
+    background: black;
+    color: white;
+}
+.sf-menu li a{
+    font-size: 16px;
+}
+
+.sf-menu ul li {
+    background: #AABDE6;
+}
+
+/*******************************FIN CSS DEL NAV BAR*/
+
+/*******************************PRIMER SLIDER*/
+.bx-wrapper .bx-loading {
+    background: none !important;
+}
+.bx-wrapper {
+    border: 0px solid #fff !important;
+}
+/*******************************FIN PRIMER SLIDER*/
+
+/*******************************NUESTROS MODELOS*/
+
+.container-fluid h4{
+    text-align: center;
+    color: darkred;
+    font-size: 30px !important;
+}
+/*******************************FIN NUESTROS MODELOS*/
+
+/*******************************CONTACTO*/
+.form-group{
+    margin-bottom: 0px !important;
+    line-height: 1;
+}
+.contact .help-block{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.contact h1{
+    margin: 0px !important;
+    color: darkred;
+}
+.contact .form-group input{
+    border-radius: 0px !important;
+    background-color: lightgray !important;
+}
+#contact-msj{
+    background-color: lightgray !important;
+    border-radius: 0px !important;
+}
+
+input[placeholder]:-moz-placeholder{ color:#000000; font-size:36px;}
+input[placeholder]::-moz-placeholder{ color:#000000; font-size:36px;}
+input[placeholder]::-webkit-placeholder{ color:#000000; font-size:36px;}
+input[placeholder]:-ms-placeholder{ color:#000000; font-size:36px;}
+
+
+.boton_contacto{
+    float: right;
+    margin-top: 2%;
+    border-radius: 0px !important;
+    color: darkred;
+    margin-bottom: 5% !important;
+}
+.field-contact-desde, .field-contact-hasta{
+    display: inline-block;
+    width: 14% !important;
+    min-width: 85px;
+}
+#contact-desde, #contact-hasta{
+    border-radius: 0px !important;
+    border: none;
+    webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,.075);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,.075);
+}
+.boton_contacto{
+    background-color:  darkred !important;
+    color: white;
+    border: none !important;
+}
+/*******************************FIN CONTACTO*/
+
+/******************************* planes postventa*/
+.wrap_postventa,  .wrap_planes{
+    border: solid 1px #e0e0e0 ;
+}
+.planes_postventa h3{
+    position: absolute;
+    margin-left: 5%;
+    color: darkred;
+}
+.planes_postventa button{
+    position: absolute;
+    margin-left: 5%;
+    margin-top: 50%;
+    color: white;
+    background-color: darkred;
+    border-radius: 0% !important;
+    border: solid 0px black ;
+}
+.planes_postventa button:hover{
+    color: white;
+    background-color: darkred;
+    border-radius: 0% !important;
+    border: solid 0px black ;
+}
+/******************************* FIN planes postventa*/
+
+/******************************* NOVEDADES*/
+.novedades {
+    background-image: url("/images/autos/6_2.jpg");
+    max-width: 100%;
+    height: 500px;
+    background-repeat: repeat-x;
+    margin: 5% 0%;
+    margin-bottom: 3%;
+}
+.novedades h3{
+    position: absolute;
+    left: 60%;
+    top: 45%;
+    color: white;
+    font-size: 60px;
+}
+/******************************* FIN NOVEDADES*/
+
+/******************************* NEWSLETTER*/
+.boton_newsleter{
+    margin: auto;
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    border: solid 1px darkred;
+    width: 50%;
+    height: 55px;
+    line-height: 55px;
+    color: lightgrey;
+}
+.linia_divisora_footer{
+    border-top: solid 1px black;
+    margin-top: 40px;
+    margin-bottom: 80px;
+}
+/******************************* FIN NEWSLETTER*/
+
+
+
+
+
+
+
+
+
+
+
+
+

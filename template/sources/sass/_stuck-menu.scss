@@ -1,0 +1,17 @@
+/*==================  Stuck menu  ======================*/
+.stuck_container {
+	margin-top: 22px;
+	background: map-get($scheme, secondary);
+}
+
+.isStuck {
+	margin-top: 0;
+	z-index: 9999;
+	border-bottom: 1px solid map-get($scheme, default);
+}
+
+@media only screen and (max-width: 979px) {
+  .isStuck {
+    display: none !important;
+  }
+}
