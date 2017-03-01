@@ -32,8 +32,8 @@ PiazzaAsset::register($this);
 
     <nav class="" data-spy="affix" data-offset-top="177">
         <ul class="sf-menu">
-            <li><a href="index">INICIO </a></li>
-            <li><a href="#">NOSOTROS </a></li>
+            <li><a href="../site/index">INICIO </a></li>
+            <li><a href="/nosotros/nosotros">NOSOTROS </a></li>
             <li><a href="/site/modelos">MODELOS </a></li>
             <li><a href="/site/planes">PLANES </a></li>
             <li><a href="/site/postventa">POSTVENTA </a></li>

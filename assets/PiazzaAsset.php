@@ -29,8 +29,8 @@ class PiazzaAsset extends AssetBundle
         'js/jquery.easing.1.3.js',
         'js/jquery.fitvids.js',
         '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js',
-        'js/main.js',
         'js/jquery.bxslider.js',
+        'js/main.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

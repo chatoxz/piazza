@@ -1,3 +1,12 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url("/tipografia/raleway/Raleway-Regular.ttf");
+}
+
+body{
+    font-family: myFirstFont !important;
+}
+
 .wrap{
     z-index: 0;
     position: relative;
@@ -272,6 +281,21 @@ input[placeholder]:-ms-placeholder{ color:#000000; font-size:36px;}
 }
 
 /**************************** FIN PAGINA NUESTROS MODELOS **********************************************************************/
+
+/****************************  PAGINA NOSOTROS **********************************************************************/
+.nuestra_empresa h2{
+    text-align: center;
+    color: darkred;
+    margin-bottom:  20px;
+}
+.nuestra_empresa .thumbs_bx a img{
+    width: 32%;
+}
+
+.thumbs_bx .active{
+    opacity: 0.8;
+}
+/**************************** FIN  PAGINA NOSOTROS **********************************************************************/
 
 
 
