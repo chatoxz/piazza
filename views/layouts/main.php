@@ -32,7 +32,7 @@ PiazzaAsset::register($this);
 
     <nav class="" data-spy="affix" data-offset-top="177">
         <ul class="sf-menu">
-            <li><a href="index">INICIO </a></li>
+            <li><a href="index"><span>INICIO</span> </a></li>
             <li><a href="#">NOSOTROS </a></li>
             <li><a href="/site/modelos">MODELOS </a></li>
             <li><a href="/site/planes">PLANES </a></li>
@@ -52,10 +52,18 @@ PiazzaAsset::register($this);
     <div class="col-md-12">
         <div class="col-md-4 redes">
             <h4> SEGUINOS EN NUESTRAS REDES</h4>
-            <img src="/images/icono_face.png" alt="">
-            <img src="/images/icono_instagram.png" alt="">
-            <img src="/images/icono_youtube.png" alt="">
-            <img class="data_fiscal" src="/images/data_fiscal.png" alt="">
+            <a href="https://www.facebook.com/PiazzaTucuman/?fref=ts" target="_blank">
+                <img src="/images/icono_face.png" alt="">
+            </a>
+            <a href="https://www.facebook.com/PiazzaTucuman/?fref=ts" target="_blank">
+                <img src="/images/icono_instagram.png" alt="">
+            </a>
+            <a href="https://www.facebook.com/PiazzaTucuman/?fref=ts" target="_blank">
+                <img src="/images/icono_youtube.png" alt="">
+            </a>
+            <a href="https://www.facebook.com/PiazzaTucuman/?fref=ts" target="_blank">
+                <img class="data_fiscal" src="/images/data_fiscal.png" alt="">
+            </a>
         </div>
         <div class="col-md-4 sucursales">
             <p><h4> CASA CENTRAL</h4>
@@ -69,11 +77,11 @@ PiazzaAsset::register($this);
             </p>
             <p><h4 class="titulo_sucursales"> Sucursal Yerba Buena</h4>
                 <span>Av. Aconquija 1117 | Yerba Buena | Tucuman </br>
-                Tel 03814255233 ó 4258625</span>
+                    Tel 03814255233 ó 4258625</span>
             </p>
-            <p><h4 class="titulo_sucursales"> CASA CENTRAL</h4>
+            <p><h4 class="titulo_sucursales"> POST VENTA</h4>
                 <span>Don Bosco 2519 / 2525, San Miguel de Tucumán </br>
-                Tel 0381423332 | Tel 03814527751/52</span>
+                    Tel 0381423332 | Tel 03814527751/52</span>
             </p>
         </div>
         <div class="col-md-4 google_maps">

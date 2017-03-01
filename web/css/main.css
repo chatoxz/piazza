@@ -49,6 +49,7 @@ a{
     position: relative;
     width: 100%;
     height: 500px;
+    max-height: 407px;
 }
 
 /***************************CSS DEL NAV BAR*/
@@ -63,6 +64,9 @@ a{
     background-color: white;
     float: left;
 }
+
+.sf-menu li { padding: 0px; }
+.sf-menu li a {  }
 
 .sf-menu ul {
     position: absolute;
@@ -85,13 +89,17 @@ a{
     border-left: none;
     height: 37px;
     color: black;
-    padding-top: 7px;
 }
 .sf-menu li:hover{
     background: black;
     color: white;
 }
 .sf-menu li a{
+    padding-top: 7px;
+    margin: 0px;
+    display: block;
+    width: 100%;
+    height: 100%;
     font-size: 16px;
 }
 
@@ -206,6 +214,7 @@ input[placeholder]:-ms-placeholder{ color:#000000; font-size:36px;}
     background-repeat: repeat-x;
     margin: 5% 0%;
     margin-bottom: 3%;
+    background-size: 100%;
 }
 .novedades h3{
     position: absolute;
@@ -240,21 +249,29 @@ input[placeholder]:-ms-placeholder{ color:#000000; font-size:36px;}
     margin-top: 72px !important;
 
 }
+.redes h4{
+    margin-left: 5%;
+}
 .redes h4, .sucursales h5, .sucursales h4{
     color: darkred;
 }
 .redes img{
     margin-left: 15px;
-    width: 20%;
+    width: 17%;
+    margin-top: 5%;
 }
 .data_fiscal{
     width: 24% !important;
     margin-top: 50px;
+    display: block;
 }
 /******************************* FIN FOOTER*/
 
 
 /**************************** PAGINA NUESTROS MODELOS **********************************************************************/
+.nuestros_modelos{
+    margin: 0px 10%;
+}
 
 .nuestros_modelos h2{
     color: darkred;
