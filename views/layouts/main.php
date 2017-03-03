@@ -34,12 +34,18 @@ PiazzaAsset::register($this);
         <ul class="sf-menu">
             <li><a href="../site/index">INICIO </a></li>
             <li><a href="/nosotros/nosotros">NOSOTROS </a></li>
-            <li><a href="/site/modelos">MODELOS </a></li>
+            <li><a href="/modelos/modelos">MODELOS </a></li>
             <li><a href="/site/planes">PLANES </a></li>
             <li><a href="/site/postventa">POSTVENTA </a></li>
             <li><a href="/site/contacto">CONTACTO </a></li>
             <li><a href="/site/noticias">NOTICIAS </a></li>
-            <li><a href="#">BUSCAR </a></li>
+            <li>
+                <form class="form_buscar">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Buscar">
+                    </div>
+                </form>
+            </li>
         </ul>
     </nav>
 

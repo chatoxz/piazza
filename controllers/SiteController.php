@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Modelos;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -90,7 +91,10 @@ class SiteController extends Controller
      */
     public function actionPlanes()
     {
-        return $this->render('planes');
+        $model = Modelos::find()->all();
+        return $this->render('planes', [
+            'model' => $model,
+        ]);
     }
 
 
@@ -154,13 +158,5 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-    /**
-     * Displays modelos page.
-     *
-     * @return string
-     */
-    public function actionModelos()
-    {
-        return $this->render('modelos');
-    }
+
 }

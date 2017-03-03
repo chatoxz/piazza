@@ -390,6 +390,33 @@ input[placeholder]:-ms-placeholder{ color:#000000; font-size:36px;}
 }
 /**************************** FIN  PAGINA NOSOTROS **********************************************************************/
 
+/**************************** PLANES **********************************************************************/
+.planes h1{
+    text-align: center;
+    color: darkred;
+    margin-top: 50px;
+}
+.planes div{
+    margin-top: 40px;
+}
+.planes .img_fiat_plan img{
+    width: 65%;
+}
+
+.wrap_img_modelo{
+    margin-bottom: 40px;
+    text-align: center;
+    height: 433px;
+}
+.wrap_img_modelo img {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.nombre_modelo{
+    font-size: 36px;
+}
+/**************************** FIN PLANES **********************************************************************/
+
 
 
 
