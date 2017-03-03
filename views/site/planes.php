@@ -10,8 +10,8 @@
     <h1>PLANES DE AHORRO</h1>
     <div class="col-md-8">
         <p>
-            En <strong>Piazza</strong> te brindamos las mejores condiciones para que puedas acceder a tu 0km: </br>
-            FIAT PLAN, el plan que te permite accedes a tu FIAT 0km de manera ágil, fácil y segura.
+            En <strong>Piazza</strong> te brindamos las mejores condiciones para que puedas acceder a tu Okm: </br>
+            FIAT PLAN, el plan que te permite acceder a tu FIAT 0km de manera ágil, fácil y segura.
         </p>
         <p>
             Ventajas:
@@ -20,11 +20,11 @@
             <li>Entregas Pactadas.</li>
             <li>Totalmente en pesos.</li>
             <li>Sin inetereses.</li>
-            <li>Te suscribis sólo con tu DNI.</li>
-            <li>La gama d modelos mas amplia del mercado.</li>
+            <li>Te suscribís sólo con tu DNI.</li>
+            <li>La gama de modelos mas amplia del mercado.</li>
             <li>La mas amplia red de cobro para el pago de tus cuotas.</li>
         </ul>
-        ALCANZÁ TU FIAT 0KM, PONÉ EN MARCHA TU PLAN
+        ALCANZÁ TU FIAT OKM, PONÉ EN MARCHA TU PLAN
         </p>
 
     </div>
