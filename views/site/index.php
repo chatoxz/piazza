@@ -11,20 +11,20 @@ $this->title = 'Piazza';
 ?>
 
 <ul id="bxslider1">
-    <li><img src="/images/autos/0.jpg" /></li>
-    <li><img src="/images/autos/1.jpg" /></li>
-    <li><img src="/images/autos/2.jpg" /></li>
+    <li><img src="/images/autos/3.jpg" /></li>
+    <li><img src="/images/autos/3.jpg" /></li>
+    <li><img src="/images/autos/3.jpg" /></li>
     <li><img src="/images/autos/3.jpg" /></li>
 </ul>
 
 <h4>NUESTROS MODELOS</h4>
 <ul id="bxslider2">
-    <li><img src="/images/autos/4.jpg" /></li>
-    <li><img src="/images/autos/5.jpg" /></li>
-    <li><img src="/images/autos/6.jpg" /></li>
     <li><img src="/images/autos/7.jpg" /></li>
-    <li><img src="/images/autos/8.jpg" /></li>
-    <li><img src="/images/autos/9.jpg" /></li>
+    <li><img src="/images/autos/7.jpg" /></li>
+    <li><img src="/images/autos/7.jpg" /></li>
+    <li><img src="/images/autos/7.jpg" /></li>
+    <li><img src="/images/autos/7.jpg" /></li>
+    <li><img src="/images/autos/7.jpg" /></li>
 </ul>
 
 <div class="site-contact">
@@ -101,15 +101,20 @@ $this->title = 'Piazza';
 
 <div class="col-md-12">
     <div class="col-md-6">
-    <p> <span> Piazza S.A</span> inicio su actividad como Concesionaria Oficial FIAT en febrero hace 10 años en la ciudad de San Miguel de Tucuman.</p>
-    <p>Hoy en dia somos una familia constituida por 95 personas y con miras de expansion. </br>
-    En un continuo proceso de crecimiento y, junto a su sucursal exclusiva para Plan de Ahorro adquirida el año pasado,
-        ya son tres los lugares con los que contamos, Casa Central y Servicio de Postventa
-    </p>
+        <p>
+            <span> Piazza S.A</span> inicio su actividad como Concesionaria Oficial FIAT en febrero hace 10 años en la ciudad de San Miguel de Tucuman.
+        </p>
+        <p>
+            Hoy en dia somos una familia constituida por 95 personas y con miras de expansion. </br>
+            En un continuo proceso de crecimiento y, junto a su sucursal exclusiva para Plan de Ahorro adquirida el año pasado,
+            ya son tres los lugares con los que contamos, Casa Central y Servicio de Postventa
+        </p>
     </div>
     <div class="col-md-6">
-        <p>En <span> Piazza S.A</span> sus miembros tienen como valor el trabajo y siempre pueden encontrar posibilidades de desarrollo profesional.
+        <p>
+            En <span> Piazza S.A</span> sus miembros tienen como valor el trabajo y siempre pueden encontrar posibilidades de desarrollo profesional.
             Nuestros clientes son considerados amigos de la casa y nos importa de sobremanera brindarles un servicio de gran valor
-            satisfaciendo sus necesidades, y de esta manera sosteniendo que somos una empresa de seriedad y confianza</p>
+            satisfaciendo sus necesidades, y de esta manera sosteniendo que somos una empresa de seriedad y confianza
+        </p>
     </div>
 </div>

@@ -15,25 +15,22 @@
     <?php // var_dump($model); ?>
 
     <div class="col-md-6">
-
         <!-- The main images -->
         <ul id="bxslider">
-            <?php foreach ($model as $img){
-                $i = 0;
+            <?php
+            foreach ($model as $img){
                 echo '<li><img src="/images/autos/'.$img->foto.'" alt=""></li>';
             } ?>
         </ul>
-
         <!-- The thumbnails -->
         <ul id="bxslider-pager">
-            <?php foreach ($model as $img){
-                $i = 0;
+            <?php
+            $i = 0;
+            foreach ($model as $img){
                 echo '<li data-slide-index="'.$i.'"><a href=""><img src="/images/autos/'.$img->foto.'" /></a></li>';
                 $i++;
             } ?>
-
         </ul>
-
     </div>
 
     <div class="col-md-6">

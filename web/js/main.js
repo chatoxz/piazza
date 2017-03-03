@@ -1,6 +1,8 @@
 /**
  * Created by chatoxz on 14/02/2017.
  */
+
+//CODIGO PARA QUE EL SCROLLEO DE LA PAGINA SEA SMOOTH
 function wheel(event) {
     var delta = 0;
     if (event.wheelDelta) {(delta = event.wheelDelta / 120);}
@@ -22,7 +24,10 @@ function handle(delta) {
 if (window.addEventListener) {window.addEventListener('DOMMouseScroll', wheel, false);}
 window.onmousewheel = document.onmousewheel = wheel;
 
+// FIN CODIGO PARA QUE EL SCROLLEO DE LA PAGINA SEA SMOOTH
+
 $(document).ready(function(){
+    //1ER SLIDER DEL HOME
     $('#bxslider1').bxSlider({
         //adaptiveHeight: true,
         pager: false,
@@ -30,7 +35,7 @@ $(document).ready(function(){
         speed: '2000',
         //easing: 'swing'
     });
-
+    //2DO SLIDER DEL HOME ES EL PEQUEÑO CON LOS AUTOS
     $('#bxslider2').bxSlider({
         slideWidth: 5000,
         minSlides: 6,
@@ -42,8 +47,7 @@ $(document).ready(function(){
         //easing: 'linear'
     });
 
-  //  var $ = jQuery.noConflict();
-
+    // SLIDER DE LA PAGINA NOSOTROS CON THUMBNAILS
     var realSlider= $("ul#bxslider").bxSlider({
         speed:1000,
         pager:false,
@@ -53,7 +57,6 @@ $(document).ready(function(){
         hideControlOnEnd:true,
         onSlideBefore:function($slideElement, oldIndex, newIndex){
             changeRealThumb(realThumbSlider,newIndex);
-
         }
 
     });
@@ -66,7 +69,7 @@ $(document).ready(function(){
         moveSlides: 1,
         pager:false,
         speed:1000,
-        infiniteLoop:true,
+        infiniteLoop:false,
         hideControlOnEnd:true,
         nextText:'<span></span>',
         prevText:'<span></span>',
@@ -81,19 +84,20 @@ $(document).ready(function(){
 
     if($("#bxslider-pager li").length<5){
         $("#bxslider-pager .bx-next").hide();
+    }else {
+
     }
 
-// sincronizza sliders realizzazioni
+    // sincronizza sliders realizzazioni
     function linkRealSliders(bigS,thumbS){
-
         $("ul#bxslider-pager").on("click","a",function(event){
             event.preventDefault();
-            var newIndex=$(this).parent().attr("data-slideIndex");
+            var newIndex = $(this).parent().attr("data-slide-Index");
             bigS.goToSlide(newIndex);
         });
     }
 
-//slider!=$thumbSlider. slider is the realslider
+    //slider!=$thumbSlider. slider is the realslider
     function changeRealThumb(slider,newIndex){
 
         var $thumbS=$("#bxslider-pager");
@@ -104,7 +108,7 @@ $(document).ready(function(){
         else slider.goToSlide(slider.getSlideCount()-4);
 
     }
-
+    // FIN SLIDER DE LA PAGINA NOSOTROS CON THUMBNAILS
 
 });
 
