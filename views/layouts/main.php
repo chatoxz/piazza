@@ -36,9 +36,10 @@ PiazzaAsset::register($this);
             <li><a href="/nosotros/nosotros">NOSOTROS </a></li>
             <li><a href="/modelos/modelos">MODELOS </a></li>
             <li><a href="/site/planes">PLANES </a></li>
+            <li><a href="/usados/usados">USADOS </a></li>
             <li><a href="/site/postventa">POSTVENTA </a></li>
-            <li><a href="/site/contacto">CONTACTO </a></li>
-            <li><a href="/site/noticias">NOTICIAS </a></li>
+            <li><a href="/contact/contacto">CONTACTO </a></li>
+            <li><a href="/novedades/novedades">NOVEDADES </a></li>
             <li>
                 <form class="form_buscar">
                     <div class="form-group">

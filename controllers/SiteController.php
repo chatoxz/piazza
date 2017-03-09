@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Modelos;
+use app\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -83,7 +84,6 @@ class SiteController extends Controller
         return $this->render('postventa');
     }
 
-
  /**
      * Displays planes.
      *
@@ -96,8 +96,6 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-
-
 
     /**
      * Login action.
@@ -117,6 +115,37 @@ class SiteController extends Controller
         return $this->render('login', [
             'model' => $model,
         ]);
+
+        //control de usuarios
+        /*if (!\Yii::$app->user->isGuest) {
+
+            if (User::isUserAdmin(Yii::$app->user->identity->id))
+            {
+                return $this->redirect(["site/admin"]);
+            }
+            else
+            {
+                return $this->redirect(["site/index"]);
+            }
+        }
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+
+            if (User::isUserAdmin(Yii::$app->user->identity->id))
+            {
+                return $this->redirect(["site/admin"]);
+            }
+            else
+            {
+                return $this->redirect(["site/index"]);
+            }
+
+        } else {
+            return $this->render('login', [
+                'model' => $model,
+            ]);
+        }*/
     }
 
     /**

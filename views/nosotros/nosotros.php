@@ -5,13 +5,16 @@
  * Date: 01/03/2017
  * Time: 16:17
  */
+$this->title = 'Piazza';
 
 ?>
+<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 
-<?php $this->registerJsFile('@web/js/nosotros.js',['position' => \yii\web\View::POS_READY ]); ?>
+<div class="titulo_seccion">
+    <div class="container">NUESTRA EMPRESA</div>
+</div>
 
 <div class="container nuestra_empresa">
-    <h2>NUESTRA EMPRESA</h2>
     <?php // var_dump($model); ?>
 
     <div class="col-md-6">

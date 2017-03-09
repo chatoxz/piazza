@@ -9,6 +9,7 @@ use yii\widgets\ActiveForm;
 
 $this->title = 'Piazza';
 ?>
+<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 
 <ul id="bxslider1">
     <li><img src="/images/autos/3.jpg" /></li>
@@ -27,7 +28,7 @@ $this->title = 'Piazza';
     <li><img src="/images/autos/7.jpg" /></li>
 </ul>
 
-<div class="site-contact">
+<div class="">
     <div class="col-md-12">
         <div class="col-md-6 contact">
             <h1>Envianos tu consulta</h1>

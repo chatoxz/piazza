@@ -10,7 +10,7 @@ $this->title = 'Create Contact';
 $this->params['breadcrumbs'][] = ['label' => 'Contacts', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="contact-create">
+<div class="contact-create container">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

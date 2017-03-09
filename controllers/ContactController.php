@@ -30,6 +30,23 @@ class ContactController extends Controller
     }
 
     /**
+     * Displays contact page.
+     *
+     * @return string
+     */
+    public function actionContacto()
+    {
+        $model = new Contact();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->refresh();
+        }
+        return $this->render('contacto', [
+            'model' => $model,
+        ]);
+    }
+
+
+    /**
      * Lists all Contact models.
      * @return mixed
      */

@@ -5,9 +5,16 @@
  * Date: 21/02/2017
  * Time: 18:42
  */
+
+$this->title = 'Piazza';
+
 ?>
+<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+
+<div class="titulo_seccion">
+    <div class="container">PLANES DE AHORRO</div>
+</div>
 <div class="container planes">
-    <h1>PLANES DE AHORRO</h1>
     <div class="col-md-8">
         <p>
             En <strong>Piazza</strong> te brindamos las mejores condiciones para que puedas acceder a tu Okm: </br>

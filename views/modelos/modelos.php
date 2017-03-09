@@ -5,10 +5,14 @@
  * Date: 02/03/2017
  * Time: 15:19
  */
+$this->title = 'Piazza';
 ?>
+<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 
+<div class="titulo_seccion">
+    <div class="container">MODELOS FINANCIADOS POR FABRICA</div>
+</div>
 <div class=" nuestros_modelos">
-    <h2>MODELOS</h2>
     <?php
     foreach ($model as $img){ ?>
         <div class="col-md-3">
