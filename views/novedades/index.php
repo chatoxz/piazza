@@ -10,13 +10,18 @@ use yii\grid\GridView;
 $this->title = 'Novedades';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="novedades-index">
+<div class="novedades-index container">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Novedades', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear Novedades', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Usuarios', ['user/index'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Modelos',  ['modelos/index'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Contactos',['contact/index'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Nosotros', ['nosotros/index'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Usados',   ['usados/index'], ['class' => 'btn btn-info']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

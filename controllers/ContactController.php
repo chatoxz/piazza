@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Contact;
 use app\models\ContactSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -20,6 +21,20 @@ class ContactController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['login', 'error','contacto'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['logout', 'index','view','create','update'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -37,7 +52,7 @@ class ContactController extends Controller
     public function actionContacto()
     {
         $model = new Contact();
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail']) && $model->save()) {
             return $this->refresh();
         }
         return $this->render('contacto', [

@@ -10,13 +10,18 @@ use yii\grid\GridView;
 $this->title = 'Contacts';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="contact-index">
+<div class="contact-index container">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Contact', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app','Create Contact'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Usuarios', ['user/index'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Modelos',  ['modelos/index'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Contactos',['contact/index'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Nosotros', ['nosotros/index'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Usados',   ['usados/index'], ['class' => 'btn btn-info']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

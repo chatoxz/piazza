@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Nosotros;
 use app\models\NosotrosSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -22,6 +23,20 @@ class NosotrosController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['login', 'error','nosotros'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['logout', 'index','view','create','update'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

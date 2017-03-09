@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Usados */
 
-$this->title = 'Create Usados';
+$this->title = 'Crear Usados';
 $this->params['breadcrumbs'][] = ['label' => 'Usados', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

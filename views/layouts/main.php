@@ -47,6 +47,9 @@ PiazzaAsset::register($this);
                     </div>
                 </form>
             </li>
+            <?php if (!Yii::$app->user->isGuest){
+                echo '<li><a href="/site/logout"> '.ucfirst(Yii::$app->user->identity->username).' (Logout)</a></li>';
+            } ?>
         </ul>
     </nav>
 

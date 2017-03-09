@@ -10,7 +10,7 @@ $this->title = $model->id_contact;
 $this->params['breadcrumbs'][] = ['label' => 'Contacts', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="contact-view">
+<div class="contact-view container">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

@@ -45,14 +45,37 @@ class Contact extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_contact' => 'Id Contact',
-            'email' => 'Email',
-            'nombre' => 'Nombre',
-            'msj' => 'Msj',
-            'desde' => 'Desde',
-            'tel' => 'Tel',
-            'domicilio' => 'Domicilio',
-            'hasta' => 'Hasta',
+            'id_contact' => Yii::t('app', 'Id Contact'),
+            'email' => Yii::t('app', 'Email'),
+            'nombre' => Yii::t('app', 'Nombre'),
+            'msj' => Yii::t('app', 'Msj'),
+            'desde' => Yii::t('app', 'Desde'),
+            'tel' => Yii::t('app', 'Tel'),
+            'domicilio' => Yii::t('app', 'Domicilio'),
+            'hasta' => Yii::t('app', 'Hasta'),
         ];
+    }
+
+    /**
+     * Sends an email to the specified email address using the information collected by this model.
+     * @param string $email the target email address
+     * @return bool whether the model passes validation
+     */
+    public function contact($email)
+    {
+        $content  = "<p>Email: ". $this->email . "</p>";
+        $content .= "<p>Nombre: ". $this->nombre . "</p>";
+        $content .= "<p>Asunto: Contacto </p>";
+        $content .= "<p>Mensaje: ". $this->msj . "</p>";
+        if ($this->validate()) {
+            Yii::$app->mailer->compose('@app/mail/layouts/html.php', ["content" => $content])
+                ->setTo($email)
+                ->setFrom([$this->email => $this->nombre])
+                ->setSubject("Asunto: Contacto")
+                ->setTextBody($this->msj)
+                ->send();
+            return true;
+        }
+        return false;
     }
 }
