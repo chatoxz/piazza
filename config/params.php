@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'adminEmail' => 'scarreras@unsta.edu.ar',
+    'adminEmail' => 'carrerasssebastian@gmail.com',
 ];

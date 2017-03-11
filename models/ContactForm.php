@@ -48,7 +48,7 @@ class ContactForm extends Model
      * @return bool whether the model passes validation
      */
     public function contact($email)
-    {//ESTE NO SE USA, SE USA LA FUNCION contact DEL MODELO Contact 
+    {//ESTE NO SE USA, SE USA LA FUNCION contact($email) DEL MODELO Contact 
         $content  = "<p>Email: ". $this->email . "</p>";
         $content .= "<p>Nombre: ". $this->nombre . "</p>";
         $content .= "<p>Asunto: Contacto </p>";

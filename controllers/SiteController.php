@@ -63,15 +63,12 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $model = new Contact();
-        //if ($model->load(Yii::$app->request->post()) && $model->save(Yii::$app->params['adminEmail'])) {
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            //Yii::$app->session->setFlash('contactFormSubmitted');
+        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail']) && $model->save()) {
             return $this->refresh();
         }
         return $this->render('index', [
             'model' => $model,
         ]);
-        //return $this->render('index');
     }
 
     /**

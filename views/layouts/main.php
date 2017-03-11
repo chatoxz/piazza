@@ -30,6 +30,37 @@ PiazzaAsset::register($this);
         <img class="img-responsive img_logo_fiat" src="/images/LogoFiat.png">
     </div>
 
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar" data-spy="affix" data-offset-top="177">
+        <ul class="nav navbar-nav sf-menu">
+            <li><a class="active" href="../site/index">INICIO </a></li>
+            <li><a href="/nosotros/nosotros">NOSOTROS </a></li>
+            <li><a href="/modelos/modelos">MODELOS </a></li>
+            <li><a href="/site/planes">PLANES </a></li>
+            <li><a href="/usados/usados">USADOS </a></li>
+            <li><a href="/site/postventa">POSTVENTA </a></li>
+            <li><a href="/contact/contacto">CONTACTO </a></li>
+            <li><a href="/novedades/novedades">NOVEDADES </a></li>
+            <li>
+                <form class="form_buscar">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Buscar">
+                    </div>
+                </form>
+            </li>
+            <?php if (!Yii::$app->user->isGuest){
+                echo '<li><a href="/site/logout"> '.ucfirst(Yii::$app->user->identity->username).' (Logout)</a></li>';
+            } ?>
+        </ul>
+    </div>
+    
+    <?php /*
     <nav class="" data-spy="affix" data-offset-top="177">
         <ul class="sf-menu">
             <li><a href="../site/index">INICIO </a></li>
@@ -52,7 +83,7 @@ PiazzaAsset::register($this);
             } ?>
         </ul>
     </nav>
-
+*/ ?>
     <div class="container-fluid " style="margin-top: 37px; position: relative; z-index: -1;">
         <?= $content ?>
     </div>

@@ -17,7 +17,7 @@ $this->title = 'Piazza';
         <ul class="nav nav-tabs nav_detalle">
             <li class="active"><a data-toggle="tab"  href="#sectionA" >DESCRIPCION</a></li>
             <li><a data-toggle="tab"  href="#sectionB">INFORMACION ADICIONAL <span>|</span></a></li>
-            <li><a data-toggle="tab"  href="<?php echo $model->video ?>" target="_blank">VIDEO</a></li>
+            <li><a href="<?php echo $model->video ?>" target="_blank">VIDEO</a></li>
         </ul>
         <div class="tab-content">
             <div id="sectionA" class="tab-pane fade in active">

@@ -2,24 +2,19 @@
 
 namespace app\controllers;
 
-use app\models\Contact;
-use app\models\User;
+use app\models\SignupForm;
 use Yii;
-use app\models\Modelos;
-use app\models\ModelosSearch;
+use app\models\User;
+use app\models\UserSearch;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
-use app\models\Users;
-
-
 
 /**
- * ModelosController implements the CRUD actions for Modelos model.
+ * UserController implements the CRUD actions for User model.
  */
-class ModelosController extends Controller
+class UserController extends Controller
 {
     /**
      * @inheritdoc
@@ -31,11 +26,11 @@ class ModelosController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error','modelos','detalles'],
+                        'actions' => ['login', 'error'],
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index','view','create','update'],
+                        'actions' => ['logout', 'index','view','create','update','signup'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -51,12 +46,12 @@ class ModelosController extends Controller
     }
 
     /**
-     * Lists all Modelos models.
+     * Lists all User models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ModelosSearch();
+        $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -66,19 +61,7 @@ class ModelosController extends Controller
     }
 
     /**
-     * Pagina Modelos.
-     * @return mixed
-     */
-    public function actionModelos()
-    {
-        $model = Modelos::find()->all();
-        return $this->render('modelos', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Displays a single Modelos model.
+     * Displays a single User model.
      * @param integer $id
      * @return mixed
      */
@@ -88,61 +71,47 @@ class ModelosController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
-    
-  /**
-     * Displays a detailed Modelos model.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionDetalles($id)
-    {
-        $contacto = new Contact();
-        $model = new Contact();
-        $enviado = 0;
-
-        if ($contacto->load(Yii::$app->request->post()) && $contacto->save()) {
-            $enviado = 1;
-            return $this->render('detalles', [
-                'model' => $this->findModel($id),
-                'contacto' => $contacto,
-                'enviado' => $enviado,
-            ]);
-        } else {
-            return $this->render('detalles', [
-                'model' => $this->findModel($id),
-                'contacto' => $contacto,
-                'enviado' => $enviado,
-            ]);
-        }
-
-
-    }
 
     /**
-     * Creates a new Modelos model.
+     * Creates a new User model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Modelos();
+        $model = new User();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if($model->file = UploadedFile::getInstance($model, 'file')){
-                $model->file->saveAs('@web/../images/modelos/' . $model->file->baseName . '.' . $model->file->extension);
-                $model->foto = $model->file->baseName. '.' . $model->file->extension;
-            }
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->id_modelos]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
             ]);
         }
     }
+    
+    /**
+     * Signs user up.
+     *
+     * @return mixed
+     */
+    public function actionSignup()
+    {
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+        return $this->render('signup', [
+            'model' => $model,
+        ]);
+    }
 
     /**
-     * Updates an existing Modelos model.
+     * Updates an existing User model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -152,12 +121,7 @@ class ModelosController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if($model->file = UploadedFile::getInstance($model, 'file')){
-                $model->file->saveAs('@web/../images/modelos/' . $model->file->baseName . '.' . $model->file->extension);
-                $model->foto = $model->file->baseName. '.' . $model->file->extension;
-            }
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->id_modelos]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -166,7 +130,7 @@ class ModelosController extends Controller
     }
 
     /**
-     * Deletes an existing Modelos model.
+     * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -179,15 +143,15 @@ class ModelosController extends Controller
     }
 
     /**
-     * Finds the Modelos model based on its primary key value.
+     * Finds the User model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Modelos the loaded model
+     * @return User the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Modelos::findOne($id)) !== null) {
+        if (($model = User::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

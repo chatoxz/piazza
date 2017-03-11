@@ -65,7 +65,9 @@ class Contact extends \yii\db\ActiveRecord
     {
         $content  = "<p>Email: ". $this->email . "</p>";
         $content .= "<p>Nombre: ". $this->nombre . "</p>";
-        $content .= "<p>Asunto: Contacto </p>";
+        $content .= "<p>Telefono: ". $this->tel . "</p>";
+        $content .= "<p>Horarios de contacto: ". $this->desde ." ".$this->hasta. "</p>";
+        $content .= "<p>Domicilio: ". $this->domicilio." </p>";
         $content .= "<p>Mensaje: ". $this->msj . "</p>";
         if ($this->validate()) {
             Yii::$app->mailer->compose('@app/mail/layouts/html.php', ["content" => $content])

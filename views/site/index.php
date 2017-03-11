@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 
 $this->title = 'Piazza';
 ?>
-<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click para ir arriba." data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 
 <ul id="bxslider1">
     <li><img src="/images/autos/3.jpg" /></li>
@@ -73,27 +73,35 @@ $this->title = 'Piazza';
 <div class="col-md-12 planes_postventa">
     <div class="col-md-6" >
         <div class="wrap_planes">
-            <a href="/site/planes">
-                <h3>FIAT PLAN</h3>
-                <button class="btn btn-default">VER MAS</button>
-                <img class="img-responsive img_home" src="/images/autos/6_1.jpg">
+            <a style="z-index: 1 href="/site/planes">
+                <h1>FINANCIACION DE FABRICA</h1>
+                <div class="triangulo_home">
+                    <img class="img-responsive img_home_planes" src="/images/autos/5.jpg">
+                    <button class="btn btn-default">VER MÁS</button>
+                </div>
             </a>
         </div>
     </div>
     <div class="col-md-6" >
         <div class="wrap_postventa">
             <a href="/site/postventa">
-                <h3>POST VENTA</h3>
-                <button class="btn btn-success">SACA TURNO ONLINE</button>
-                <img class="img-responsive img_home" src="/images/autos/6_1.jpg">
+                <h1>POST VENTA</h1>
+                <div class="triangulo_home">
+                    <img class="img-responsive img_home_postventa" src="/images/autos/7.jpg">
+                    <button class="btn btn-success">
+                        <span> SACÁ TURNO</span>                        
+                        <span> ONLINE</span>
+                    </button>
+                </div>
             </a>
         </div>
     </div>
 </div>
-
-<div class="col-md-12 novedades">
-    <h3>NOVEDADES</h3>
-</div>
+<a href="/novedades/novedades">
+    <div class="col-md-12 novedades">
+        <h3>NOVEDADES</h3>
+    </div>
+</a>
 <div class="col-md-12" style="display: inline-block">
     <div class="boton_newsleter">SUSCRIBITE A NUESTRO NEWSLETTER</div>
 </div>
