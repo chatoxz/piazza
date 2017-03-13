@@ -59,7 +59,7 @@ PiazzaAsset::register($this);
             } ?>
         </ul>
     </div>
-    
+
     <?php /*
     <nav class="" data-spy="affix" data-offset-top="177">
         <ul class="sf-menu">
@@ -84,7 +84,7 @@ PiazzaAsset::register($this);
         </ul>
     </nav>
 */ ?>
-    <div class="container-fluid " style="margin-top: 37px; position: relative; z-index: -1;">
+    <div class="container-fluid " style="margin-top: 0px; position: relative; z-index: -1;">
         <?= $content ?>
     </div>
 </div>

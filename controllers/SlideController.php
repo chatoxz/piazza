@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\Fotos;
+use app\models\FotosSearch;
 use Yii;
 use app\models\Slide;
 use app\models\SlideSearch;
@@ -23,7 +25,7 @@ class SlideController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                   // 'delete' => ['POST'],
+                    'delete' => ['POST'],
                 ],
             ],
         ];
@@ -105,6 +107,28 @@ class SlideController extends Controller
 
         return $this->redirect(['index']);
     }
+    /**
+     * Fotos Slide model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionFotos($id)
+    {
+        $searchModel = new FotosSearch();
+        $searchModel->tipo = 1;
+        $searchModel->id = $id;
+        $dataProvider = $searchModel->search2(Yii::$app->request->queryParams);
+        $tipo = 1;
+
+        return $this->render('fotos', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'tipo' => $tipo,
+            'id' => $id,
+        ]);
+    }
+
+
 
     /**
      * Finds the Slide model based on its primary key value.

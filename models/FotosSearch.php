@@ -19,7 +19,7 @@ class FotosSearch extends Fotos
     {
         return [
             [['id_fotos', 'id', 'tipo'], 'integer'],
-            [['foto'], 'safe'],
+            [['foto', 'link'], 'safe'],
         ];
     }
 
@@ -60,12 +60,41 @@ class FotosSearch extends Fotos
         // grid filtering conditions
         $query->andFilterWhere([
             'id_fotos' => $this->id_fotos,
-            'id' => $this->id,
-            'tipo' => $this->tipo,
         ]);
 
         $query->andFilterWhere(['like', 'foto', $this->foto]);
 
         return $dataProvider;
+    }
+
+    public function search2($params)
+    {
+        $query = Fotos::find();
+
+        // add conditions that should always apply here
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        $this->load($params,'');
+
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+            // $query->where('0=1');
+            return $dataProvider;
+        }
+
+        // grid filtering conditions
+        $query->andFilterWhere([
+            'id_fotos' => $this->id_fotos,
+            'id' => $this->id,
+            'tipo' => $this->tipo,
+        ]);
+
+        $query->andFilterWhere(['like', 'foto', $this->foto]);
+        return $dataProvider;
+
+
     }
 }

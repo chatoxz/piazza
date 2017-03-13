@@ -27,13 +27,16 @@ body{
     top: 0;
     width: 100% !important;
 }
-.affix + .logos {
-    padding-top: 70px;
+/* AGREGA AL container-fluid SIGUIENTE UN PADDING CUANDO LA BARRA SE PEGA A LA PARTE SUPERIOR DE LA PANTALLA*/
+/* The + is used to select an element that is placed immediately after (not inside) the first specified element. */
+.affix + .container-fluid {
+    padding-top: 47px;
 }
 
 /*PARA QUE LA PAGINA SEA DE PANTALLA COMPLETA*/
 .container-fluid, .logos{
-    padding: 0px !important;
+    padding-left: 0px !important;
+    padding-right:  0px !important;
 }
 /* LINKS SIN CAMBIOS AL HACER CLICK Y SIN SUBRAYADOS O CAMBIOS DE COLOR*/
 a{
@@ -198,6 +201,7 @@ a{
 }
 .bx-wrapper {
     border: 0px solid #fff !important;
+    z-index: 0;
 }
 /*******************************FIN PRIMER SLIDER*/
 

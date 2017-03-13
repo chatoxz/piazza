@@ -12,10 +12,15 @@ $this->title = 'Piazza';
 <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click para ir arriba." data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 
 <ul id="bxslider1">
-    <li><img src="/images/autos/3.jpg" /></li>
-    <li><img src="/images/autos/3.jpg" /></li>
-    <li><img src="/images/autos/3.jpg" /></li>
-    <li><img src="/images/autos/3.jpg" /></li>
+    $fotos
+    <?php
+    foreach ($fotos as $img){ ?>
+        <div class="col-md-3">
+            <a href="/modelos/detalles?id=<?php echo $img->link ?>" title="View" aria-label="View">
+                <img src="/images/autos/<?php echo $img->foto ?>" alt="">
+            </a>
+        </div>
+    <?php } ?>
 </ul>
 
 <h4>NUESTROS MODELOS</h4>

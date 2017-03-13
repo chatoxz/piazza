@@ -23,7 +23,7 @@ class FotosController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    //'delete' => ['POST'],
                 ],
             ],
         ];
@@ -61,15 +61,28 @@ class FotosController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($tipo,$id)
     {
         $model = new Fotos();
+        if($tipo = 1){
+            $carpeta = 'slider';
+        }
+        if($tipo = 2){
+            $carpeta = 'modelos';
+        }
+        if($tipo = 3){
+            $carpeta = 'nosotros';
+        }
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_fotos]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'tipo' => $tipo,
+                'id' => $id,
+                'carpeta' => $carpeta,
             ]);
         }
     }
@@ -103,7 +116,11 @@ class FotosController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        if(Yii::$app->request->referrer){
+            return $this->redirect(Yii::$app->request->referrer);
+        }else{
+            return $this->redirect(['fotos/index']);
+        }
     }
 
     /**

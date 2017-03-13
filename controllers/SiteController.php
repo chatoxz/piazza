@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Fotos;
 use app\models\Modelos;
 use app\models\User;
 use Yii;
@@ -63,11 +64,16 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $model = new Contact();
+        $fotos = Fotos::find()->andWhere(['tipo' => 1]) // define que son fotos de slide
+            ->andWhere(['id' => 1]);//es el id_slide 
+
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail']) && $model->save()) {
             return $this->refresh();
         }
         return $this->render('index', [
             'model' => $model,
+            'fotos' => $fotos,
+            //'slide2' => $model,
         ]);
     }
 
@@ -81,7 +87,7 @@ class SiteController extends Controller
         return $this->render('postventa');
     }
 
- /**
+    /**
      * Displays planes.
      *
      * @return string

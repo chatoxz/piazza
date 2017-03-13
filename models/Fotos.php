@@ -11,12 +11,14 @@ use Yii;
  * @property integer $id
  * @property integer $tipo
  * @property string $foto
+ * @property string $link
  *
  * @property Modelos $id0
  * @property Slide $id1
  */
 class Fotos extends \yii\db\ActiveRecord
 {
+    public $file;
     /**
      * @inheritdoc
      */
@@ -34,8 +36,10 @@ class Fotos extends \yii\db\ActiveRecord
             [['id'], 'required'],
             [['id', 'tipo'], 'integer'],
             [['foto'], 'string', 'max' => 155],
+            [['link'], 'string', 'max' => 255],
             [['id'], 'exist', 'skipOnError' => true, 'targetClass' => Modelos::className(), 'targetAttribute' => ['id' => 'id_modelos']],
             [['id'], 'exist', 'skipOnError' => true, 'targetClass' => Slide::className(), 'targetAttribute' => ['id' => 'id_slide']],
+            [['file'], 'file'],
         ];
     }
 
@@ -49,6 +53,7 @@ class Fotos extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'tipo' => Yii::t('app', 'Tipo'),
             'foto' => Yii::t('app', 'Foto'),
+            'link' => Yii::t('app', 'Link'),
         ];
     }
 

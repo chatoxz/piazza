@@ -17,7 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Modelos',  ['modelos/index'], ['class' => 'btn btn-info']) ?>
         <?= Html::a('Contactos',['contact/index'], ['class' => 'btn btn-info']) ?>
         <?= Html::a('Nosotros', ['nosotros/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Usados',   ['usados/index'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Usados',   ['usados/index'], ['class' => 'btn btn-info']) ?>         
+        <?= Html::a('Slide',   ['slide/index'], ['class' => 'btn btn-info']) ?>
     </p>
 
     <h1><?= Html::encode($this->title) ?></h1>
