@@ -25,7 +25,7 @@ body{
 /*PARA QUE FUNCIONE LA BARRA */
 .affix {
     top: 0;
-    width: 100%;
+    width: 100% !important;
 }
 .affix + .logos {
     padding-top: 70px;
@@ -54,7 +54,7 @@ a{
     color: white !important;
     background-color: #9b102d !important;
     border-color: #9b102d !important;
-
+    z-index: 99;
 }
 .back-to-top:hover{
     color: black !important;
@@ -141,9 +141,9 @@ a{
     height: 45px;
     color: black;
 }
-.sf-menu li:hover{
-    background: black;
-    color: white;
+.sf-menu li:hover,.sf-menu li a:hover{
+    background: black !important;
+    color: white !important;
 }
 .sf-menu li a{
     padding-top: 11px;
@@ -152,14 +152,6 @@ a{
     width: 100%;
     height: 100%;
     font-size: 16px;
-}
-
-.sf-menu ul li {
-    background: #AABDE6;
-}
-
-.sf-menu ul li:last-of-type {
-    border-left: 0px solid black;
 }
 .form_buscar div input{
     height: 30px;
@@ -206,7 +198,6 @@ a{
 }
 .bx-wrapper {
     border: 0px solid #fff !important;
-    z-index: -1;
 }
 /*******************************FIN PRIMER SLIDER*/
 
