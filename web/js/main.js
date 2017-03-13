@@ -47,7 +47,7 @@ $(document).ready(function(){
         //easing: 'linear'
     });
 
-    // SLIDER DE LA PAGINA NOSOTROS CON THUMBNAILS
+    // SLIDER DE LA PAGINA NOSOTROS CON THUMBNAILS ****************************************************
     var realSlider= $("ul#bxslider").bxSlider({
         speed:1000,
         pager:false,
@@ -74,10 +74,9 @@ $(document).ready(function(){
         nextText:'<span></span>',
         prevText:'<span></span>',
         onSlideBefore:function($slideElement, oldIndex, newIndex){
-            /*$("#sliderThumbReal ul .active").removeClass("active");
-             $slideElement.addClass("active"); */
-
-        }
+            //$("#sliderThumbReal ul .active").removeClass("active");
+            // $slideElement.addClass("active");
+        },
     });
 
     linkRealSliders(realSlider,realThumbSlider);
@@ -92,22 +91,24 @@ $(document).ready(function(){
     function linkRealSliders(bigS,thumbS){
         $("ul#bxslider-pager").on("click","a",function(event){
             event.preventDefault();
-            var newIndex = $(this).parent().attr("data-slide-Index");
+            var newIndex = $(this).parent().attr("data-slide-index");
             bigS.goToSlide(newIndex);
         });
     }
 
     //slider!=$thumbSlider. slider is the realslider
     function changeRealThumb(slider,newIndex){
-
         var $thumbS=$("#bxslider-pager");
         $thumbS.find('.active').removeClass("active");
-        $thumbS.find('li[data-slideIndex="'+newIndex+'"]').addClass("active");
-
-        if(slider.getSlideCount()-newIndex>=4)slider.goToSlide(newIndex);
-        else slider.goToSlide(slider.getSlideCount()-4);
-
+        $thumbS.find('li[data-slide-index="'+newIndex+'"]').addClass("active");
+        if(slider.getSlideCount()-newIndex>=4){
+            slider.goToSlide(newIndex);
+        }
+        else{
+            slider.goToSlide(slider.getSlideCount()-4);
+        }
     }
+
     // FIN SLIDER DE LA PAGINA NOSOTROS CON THUMBNAILS
 
     // CODIGO DEL BOTON BACK TO TOP ************************************************************************

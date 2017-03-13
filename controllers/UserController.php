@@ -2,19 +2,19 @@
 
 namespace app\controllers;
 
+use app\models\SignupForm;
 use Yii;
-use app\models\Novedades;
-use app\models\NovedadesSearch;
+use app\models\User;
+use app\models\UserSearch;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
 
 /**
- * NovedadesController implements the CRUD actions for Novedades model.
+ * UserController implements the CRUD actions for User model.
  */
-class NovedadesController extends Controller
+class UserController extends Controller
 {
     /**
      * @inheritdoc
@@ -26,11 +26,11 @@ class NovedadesController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error','novedades'],
+                        'actions' => ['login', 'error'],
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index','view','create','update','delete'],
+                        'actions' => ['logout', 'index','view','create','update','signup','delete'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -46,12 +46,12 @@ class NovedadesController extends Controller
     }
 
     /**
-     * Lists all Novedades models.
+     * Lists all User models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new NovedadesSearch();
+        $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -61,21 +61,7 @@ class NovedadesController extends Controller
     }
 
     /**
-     * Displays novedades.
-     *
-     * @return string
-     */
-    public function actionNovedades()
-    {
-        $model = Novedades::find()->all();
-        return $this->render('novedades', [
-            'model' => $model,
-        ]);
-    }
-
-
-    /**
-     * Displays a single Novedades model.
+     * Displays a single User model.
      * @param integer $id
      * @return mixed
      */
@@ -87,30 +73,45 @@ class NovedadesController extends Controller
     }
 
     /**
-     * Creates a new Novedades model.
+     * Creates a new User model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Novedades();
+        $model = new User();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if($model->file = UploadedFile::getInstance($model, 'file')){
-                $model->file->saveAs('@web/../images/novedades/' . $model->file->baseName . '.' . $model->file->extension);
-                $model->foto = $model->file->baseName. '.' . $model->file->extension;
-            }
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->id_novedades]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
             ]);
         }
     }
+    
+    /**
+     * Signs user up.
+     *
+     * @return mixed
+     */
+    public function actionSignup()
+    {
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+        return $this->render('signup', [
+            'model' => $model,
+        ]);
+    }
 
     /**
-     * Updates an existing Novedades model.
+     * Updates an existing User model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -120,12 +121,7 @@ class NovedadesController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if($model->file = UploadedFile::getInstance($model, 'file')){
-                $model->file->saveAs('@web/../images/novedades/' . $model->file->baseName . '.' . $model->file->extension);
-                $model->foto = $model->file->baseName. '.' . $model->file->extension;
-            }
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->id_novedades]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -134,7 +130,7 @@ class NovedadesController extends Controller
     }
 
     /**
-     * Deletes an existing Novedades model.
+     * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -147,15 +143,15 @@ class NovedadesController extends Controller
     }
 
     /**
-     * Finds the Novedades model based on its primary key value.
+     * Finds the User model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Novedades the loaded model
+     * @return User the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Novedades::findOne($id)) !== null) {
+        if (($model = User::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -29,7 +29,7 @@ class ContactController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index','view','create','update'],
+                        'actions' => ['logout', 'index','view','create','update','delete'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
