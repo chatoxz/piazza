@@ -187,18 +187,13 @@ a{
 .navbar-toggle .icon-bar {
     background-color: white !important;
 }
+
 @media (max-width: 992px) {
     .sf-menu li a{
         font-size: small;
     }
     .img_fiat_plan,.img_home{
         display: none;
-    }
-    body *{
-        max-width: 992px;
-    }
-    .container-fluid > *{
-        max-width: 992px;
     }
 }
 @media (max-width: 768px) {
@@ -207,32 +202,24 @@ a{
     }
     .sf-menu li {
         float: none !important;
-        width: 300px;
+        width: 300px !important;
     }
     .img_fiat_plan,.img_home{
-        display: none;
+        display: none !important;
     }
-    body *{
-        max-width: 768px;
+    .novedades h3 {
+        top: 45%;
+        color: white;
+        font-size: 40px !important;
     }
-    .container-fluid > *{
-        max-width: 768px;
-    }
+}
+@media (max-width: 600px) {
 
 }
-
-
 @media (max-width: 480px) {
     .img_logo_piazza, .img_logo_fiat{
         float: left !important;
     }
-    body *{
-        max-width: 480px;
-    }
-    .container-fluid > *{
-        max-width: 480px;
-    }
-
 }
 /*******************************FIN CSS DEL NAV BAR*/
 
@@ -250,10 +237,17 @@ a{
 }
 /*******************************FIN PRIMER SLIDER*/
 
-/*******************************NUESTROS MODELOS*/
+/*******************************NUESTROS MODELOS INDEX*/
+.nuestros_modelos_index_titulo{
+    margin: auto;
+    display: block;
+    text-align: center;
+    color: #9b102d;
+    font-family: semibold;
+    margin-bottom: 30px;
+}
 
-
-/*******************************FIN NUESTROS MODELOS*/
+/*******************************FIN NUESTROS MODELOS INDEX*/
 
 /******************************* INDEX CONTACTO*/
 .form-group{
@@ -266,7 +260,7 @@ a{
 }
 .contact h1, .contact h2, .contact h3, .contact h4, .contact h5, .contact h6{
     margin: 0px !important;
-    color: #9b102d;
+    /*color: #9b102d;*/
 }
 .contact .form-group input{
     border-radius: 0px !important;
@@ -384,7 +378,7 @@ input[placeholder]:-ms-placeholder{ color:#000000; font-size:36px;}
 }
 .novedades h3{
     position: absolute;
-    left: 60%;
+    right: 10%;
     top: 45%;
     color: white;
     font-size: 60px;
