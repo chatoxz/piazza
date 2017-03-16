@@ -16,7 +16,7 @@ PiazzaAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -24,7 +24,6 @@ PiazzaAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
     <div class="container-fluid logos">
         <img class="img-responsive img_logo_piazza" src="/images/LogoPiazza.png">
         <img class="img-responsive img_logo_fiat" src="/images/LogoFiat.png">
@@ -42,7 +41,7 @@ PiazzaAsset::register($this);
             <li><a class="active" href="../site/index">INICIO </a></li>
             <li><a href="/nosotros/nosotros">NOSOTROS </a></li>
             <li><a href="/modelos/modelos">MODELOS </a></li>
-            <li><a href="/site/planes">PLANES </a></li>
+            <li><a href="/planes/planes">PLANES </a></li>
             <li><a href="/usados/usados">USADOS </a></li>
             <li><a href="/site/postventa">POSTVENTA </a></li>
             <li><a href="/contact/contacto">CONTACTO </a></li>
@@ -84,13 +83,12 @@ PiazzaAsset::register($this);
         </ul>
     </nav>
 */ ?>
-    <div class="container-fluid " style="margin-top: 0px; position: relative; z-index: -1;">
+    <div class="container-fluid big-container-fluid" style="margin-top: 0px; position: relative; z-index: -1;">
         <?= $content ?>
     </div>
-</div>
 
 <footer class="footer">
-    <div class="col-md-12">
+    <div class="col-md-12   ">
         <div class="col-md-4 redes">
             <h4> SEGUINOS EN NUESTRAS REDES</h4>
             <a href="https://www.facebook.com/PiazzaTucuman/?fref=ts" target="_blank">

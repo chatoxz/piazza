@@ -12,7 +12,7 @@ $this->title = 'Piazza';
 <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click para ir arriba." data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 
 <div class="titulo_seccion">
-    <div class="container">PLANES DE AHORRO</div>
+    <div class="container">MODELOS FINANCIADOS DE FABRICA</div>
 </div>
 <div class="container planes">
     <div class="col-md-8">
@@ -35,22 +35,24 @@ $this->title = 'Piazza';
         </p>
 
     </div>
-    <div class="col-md-4 img_fiat_plan">
+    <div class="col-md-4   img_fiat_plan">
         <img src="/images/fiat_Plan.jpg" alt="">
     </div>
     <div class="plan_ahorro_modelos">
-        <?php foreach ($model as $img){ ?>
+        <?php foreach ($planes as $plan){ ?>
             <div class="col-md-6 wrap_img_modelo">
-                <a href="/modelos/detalles?id=<?php echo $img->id_modelos ?>" title="View" aria-label="View">
-                    <img src="/images/modelos/<?php echo $img->foto ?>" alt="">
-                    <span class="nombre_modelo"><?php echo $img->nombre ?></span>
-                </a>
-            </div>
-        <?php } ?><?php foreach ($model as $img){ ?>
-            <div class="col-md-6 wrap_img_modelo">
-                <a href="/modelos/detalles?id=<?php echo $img->id_modelos ?>" title="View" aria-label="View">
-                    <img src="/images/modelos/<?php echo $img->foto ?>" alt="">
-                    <span class="nombre_modelo"><?php echo $img->nombre ?></span>
+                <a href="/planes/detalles?id=<?php echo $plan->id_plan?>&id_modelos=<?php echo $plan->id_modelos ?>" title="View" aria-label="View">
+                    <img src="/images/modelos/<?php
+                    $bandera = 0;
+                    foreach ($fotos as $foto){
+                        if($foto->id == $plan->id_modelos){
+                            echo $foto->foto;
+                            $bandera = 1;
+                            break;
+                        }
+                    }
+                    ?>" alt="">
+                    <span class="nombre_modelo"><?php echo $plan->nombre ?></span>
                 </a>
             </div>
         <?php } ?>

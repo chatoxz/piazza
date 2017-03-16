@@ -11,30 +11,30 @@ $this->title = 'Piazza';
 ?>
 <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click para ir arriba." data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 
-<ul id="bxslider1">
-    $fotos
-    <?php
-    foreach ($fotos as $img){ ?>
-        <div class="col-md-3">
-            <a href="/modelos/detalles?id=<?php echo $img->link ?>" title="View" aria-label="View">
-                <img src="/images/autos/<?php echo $img->foto ?>" alt="">
-            </a>
-        </div>
-    <?php } ?>
-</ul>
+<div class="row">
+    <ul id="bxslider1">
+        <?php
+        foreach ($slide as $img){ ?>
+            <div class="col-md-3">
+                <a href="<?php echo $img->link ?>" title="View" aria-label="View">
+                    <img src="/images/index/<?php echo $img->foto ?>" alt="">
+                </a>
+            </div>
+        <?php } ?>
+    </ul>
+</div>
+<div class="row">
+    <h4>NUESTROS MODELOS</h4>
+    <ul id="bxslider2">
+        <?php
+        foreach ($slide2 as $img){ ?>
+            <li><img src="/images/index/<?php echo $img->foto ?>" /></li>
+        <?php } ?>
+    </ul>
+</div>
 
-<h4>NUESTROS MODELOS</h4>
-<ul id="bxslider2">
-    <li><img src="/images/autos/7.jpg" /></li>
-    <li><img src="/images/autos/7.jpg" /></li>
-    <li><img src="/images/autos/7.jpg" /></li>
-    <li><img src="/images/autos/7.jpg" /></li>
-    <li><img src="/images/autos/7.jpg" /></li>
-    <li><img src="/images/autos/7.jpg" /></li>
-</ul>
-
-<div class="">
-    <div class="col-md-12">
+<div class="row">
+    <div class="col-md-12  ">
         <div class="col-md-6 contact">
             <h1>Envianos tu consulta</h1>
 
@@ -74,61 +74,72 @@ $this->title = 'Piazza';
         </div>
     </div>
 </div>
+<div class="row">
 
-<div class="col-md-12 planes_postventa">
-    <div class="col-md-6" >
-        <div class="wrap_planes">
-            <a style="z-index: 1 href="/site/planes">
-                <h1>FINANCIACION DE FABRICA</h1>
-                <div class="triangulo_home">
-                    <img class="img-responsive img_home_planes" src="/images/autos/5.jpg">
-                    <button class="btn btn-default">VER MÁS</button>
-                </div>
-            </a>
+    <div class="col-md-12    planes_postventa">
+        <div class="col-md-6" >
+            <div class="wrap_planes">
+                <a style="z-index: 1" href="/planes/planes">
+                    <h1>FINANCIACION DE FABRICA</h1>
+                    <div class="triangulo_home">
+                        <img class="img-responsive img_home_planes" src="/images/autos/5.jpg">
+                        <button class="btn btn-default">VER MÁS</button>
+                    </div>
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="col-md-6" >
-        <div class="wrap_postventa">
-            <a href="/site/postventa">
-                <h1>POST VENTA</h1>
-                <div class="triangulo_home">
-                    <img class="img-responsive img_home_postventa" src="/images/autos/7.jpg">
-                    <button class="btn btn-success">
-                        <span> SACÁ TURNO</span>                        
-                        <span> ONLINE</span>
-                    </button>
-                </div>
-            </a>
+        <div class="col-md-6" >
+            <div class="wrap_postventa">
+                <a href="/site/postventa">
+                    <h1>POST VENTA</h1>
+                    <div class="triangulo_home">
+                        <img class="img-responsive img_home_postventa" src="/images/autos/7.jpg">
+                        <button class="btn btn-success">
+                            <span> SACÁ TURNO</span>
+                            <span> ONLINE</span>
+                        </button>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </div>
-<a href="/novedades/novedades">
-    <div class="col-md-12 novedades">
-        <h3>NOVEDADES</h3>
-    </div>
-</a>
-<div class="col-md-12" style="display: inline-block">
-    <div class="boton_newsleter">SUSCRIBITE A NUESTRO NEWSLETTER</div>
+
+<div class="row">
+    <a href="/novedades/novedades">
+        <div class="col-md-12    novedades">
+            <h3>NOVEDADES</h3>
+        </div>
+    </a>
 </div>
+<div class="row">
 
-<div class="col-md-12 linia_divisora_footer"></div>
-
-<div class="col-md-12">
-    <div class="col-md-6">
-        <p>
-            <span> Piazza S.A</span> inicio su actividad como Concesionaria Oficial FIAT en febrero hace 10 años en la ciudad de San Miguel de Tucuman.
-        </p>
-        <p>
-            Hoy en dia somos una familia constituida por 95 personas y con miras de expansion. </br>
-            En un continuo proceso de crecimiento y, junto a su sucursal exclusiva para Plan de Ahorro adquirida el año pasado,
-            ya son tres los lugares con los que contamos, Casa Central y Servicio de Postventa
-        </p>
+    <div class="col-md-12" style="display: inline-block">
+        <div class="boton_newsleter">SUSCRIBITE A NUESTRO NEWSLETTER</div>
     </div>
-    <div class="col-md-6">
-        <p>
-            En <span> Piazza S.A</span> sus miembros tienen como valor el trabajo y siempre pueden encontrar posibilidades de desarrollo profesional.
-            Nuestros clientes son considerados amigos de la casa y nos importa de sobremanera brindarles un servicio de gran valor
-            satisfaciendo sus necesidades, y de esta manera sosteniendo que somos una empresa de seriedad y confianza
-        </p>
+</div>
+<div class="row">
+
+    <div class="col-md-12 linia_divisora_footer"></div></div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <p>
+                <span> Piazza S.A</span> inicio su actividad como Concesionaria Oficial FIAT en febrero hace 10 años en la ciudad de San Miguel de Tucuman.
+            </p>
+            <p>
+                Hoy en dia somos una familia constituida por 95 personas y con miras de expansion. </br>
+                En un continuo proceso de crecimiento y, junto a su sucursal exclusiva para Plan de Ahorro adquirida el año pasado,
+                ya son tres los lugares con los que contamos, Casa Central y Servicio de Postventa
+            </p>
+        </div>
+        <div class="col-md-6">
+            <p>
+                En <span> Piazza S.A</span> sus miembros tienen como valor el trabajo y siempre pueden encontrar posibilidades de desarrollo profesional.
+                Nuestros clientes son considerados amigos de la casa y nos importa de sobremanera brindarles un servicio de gran valor
+                satisfaciendo sus necesidades, y de esta manera sosteniendo que somos una empresa de seriedad y confianza
+            </p>
+        </div>
     </div>
 </div>

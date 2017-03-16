@@ -64,16 +64,19 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $model = new Contact();
-        $fotos = Fotos::find()->andWhere(['tipo' => 1]) // define que son fotos de slide
-            ->andWhere(['id' => 1]);//es el id_slide 
+        $slide = Fotos::find()->andWhere(['id_tipo' => 3]) // define que son fotos del index
+            ->andWhere(['id' => 1])->all();//es el id_slide
+
+       $slide2 = Fotos::find()->andWhere(['id_tipo' => 3]) // define que son fotos de index
+            ->andWhere(['id' => 2])->all();//es el id_slide
 
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail']) && $model->save()) {
             return $this->refresh();
         }
         return $this->render('index', [
             'model' => $model,
-            'fotos' => $fotos,
-            //'slide2' => $model,
+            'slide' => $slide,
+            'slide2' => $slide2,
         ]);
     }
 
@@ -86,20 +89,7 @@ class SiteController extends Controller
     {
         return $this->render('postventa');
     }
-
-    /**
-     * Displays planes.
-     *
-     * @return string
-     */
-    public function actionPlanes()
-    {
-        $model = Modelos::find()->all();
-        return $this->render('planes', [
-            'model' => $model,
-        ]);
-    }
-
+  
     /**
      * Login action.
      *
@@ -108,7 +98,7 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            $this->redirect(['modelos/index']);
         }
 
         $model = new LoginForm();

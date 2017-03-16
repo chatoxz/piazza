@@ -15,8 +15,6 @@ $this->title = 'Piazza';
 </div>
 
 <div class="container nuestra_empresa">
-    <?php // var_dump($model); ?>
-
     <div class="col-md-6">
         <!-- The main images -->
         <ul id="bxslider">
@@ -25,9 +23,9 @@ $this->title = 'Piazza';
             foreach ($model as $img){
                 if($bandera = 0){
                     $bandera = 1;
-                    echo '<li class="active"><img src="/images/autos/'.$img->foto.'" alt=""></li>';
+                    echo '<li class="active"><img src="/images/nosotros/'.$img->foto.'" alt=""></li>';
                 }else{
-                    echo '<li><img src="/images/autos/'.$img->foto.'" alt=""></li>';
+                    echo '<li><img src="/images/nosotros/'.$img->foto.'" alt=""></li>';
                 }
             } ?>
         </ul>
@@ -36,7 +34,7 @@ $this->title = 'Piazza';
             <?php
             $i = 0;
             foreach ($model as $img){
-                echo '<li data-slide-index="'.$i.'"><a href=""><img src="/images/autos/'.$img->foto.'" /></a></li>';
+                echo '<li data-slide-index="'.$i.'"><a href=""><img src="/images/nosotros/'.$img->foto.'" /></a></li>';
                 $i++;
             } ?>
         </ul>

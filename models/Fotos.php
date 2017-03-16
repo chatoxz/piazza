@@ -9,12 +9,12 @@ use Yii;
  *
  * @property integer $id_fotos
  * @property integer $id
- * @property integer $tipo
+ * @property integer $id_tipo
  * @property string $foto
  * @property string $link
+ * @property integer $orden
  *
- * @property Modelos $id0
- * @property Slide $id1
+ * @property TipoFoto $idTipo
  */
 class Fotos extends \yii\db\ActiveRecord
 {
@@ -33,12 +33,11 @@ class Fotos extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'required'],
-            [['id', 'tipo'], 'integer'],
+            [['id', 'id_tipo'], 'required'],
+            [['id', 'id_tipo', 'orden'], 'integer'],
             [['foto'], 'string', 'max' => 155],
             [['link'], 'string', 'max' => 255],
-            [['id'], 'exist', 'skipOnError' => true, 'targetClass' => Modelos::className(), 'targetAttribute' => ['id' => 'id_modelos']],
-            [['id'], 'exist', 'skipOnError' => true, 'targetClass' => Slide::className(), 'targetAttribute' => ['id' => 'id_slide']],
+            [['id_tipo'], 'exist', 'skipOnError' => true, 'targetClass' => TipoFoto::className(), 'targetAttribute' => ['id_tipo' => 'id_tipo']],
             [['file'], 'file'],
         ];
     }
@@ -51,25 +50,18 @@ class Fotos extends \yii\db\ActiveRecord
         return [
             'id_fotos' => Yii::t('app', 'Id Fotos'),
             'id' => Yii::t('app', 'ID'),
-            'tipo' => Yii::t('app', 'Tipo'),
+            'id_tipo' => Yii::t('app', 'Id Tipo'),
             'foto' => Yii::t('app', 'Foto'),
             'link' => Yii::t('app', 'Link'),
+            'orden' => Yii::t('app', 'Orden'),
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getId0()
+    public function getIdTipo()
     {
-        return $this->hasOne(Modelos::className(), ['id_modelos' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getId1()
-    {
-        return $this->hasOne(Slide::className(), ['id_slide' => 'id']);
+        return $this->hasOne(TipoFoto::className(), ['id_tipo' => 'id_tipo']);
     }
 }

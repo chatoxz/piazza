@@ -19,7 +19,7 @@ $this->title = 'Piazza';
 <?php
 $i = 1;
 foreach ($model as $nov){ ?>
-    <div class="col-md-12 wrap_novedades">
+    <div class="col-md-12    wrap_novedades">
         <div class="col-md-6 texto_novedad">
             <div class="titulo_novedad"><?php echo $nov->titulo ?></div>
             <p>

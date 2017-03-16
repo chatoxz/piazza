@@ -19,15 +19,15 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete', ['delete', 'id' => $model->id_modelos], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => Yii::t('app', 'Esta seguro que desea eliminar el item? la accion es IRREVERSIBLE.'),
                 'method' => 'post',
             ],
         ]) ?>
         <?= Html::a('Usuarios', ['user/index'], ['class' => 'btn btn-info']) ?>
         <?= Html::a('Modelos',  ['modelos/index'], ['class' => 'btn btn-info']) ?>
         <?= Html::a('Contactos',['contact/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Nosotros', ['nosotros/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Usados',   ['usados/index'], ['class' => 'btn btn-info']) ?>         <?= Html::a('Slide',   ['slide/index'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Fotos Nosotros', ['nosotros/index'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Usados',   ['usados/index'], ['class' => 'btn btn-info']) ?>         <?= Html::a('Index fotos', ['fotos/index?id_tipo=3'], ['class' => 'btn btn-info']) ?>
     </p>
 
     <?= DetailView::widget([
@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id_modelos',
             'nombre',
-            'foto',
+            //'foto',
             'descripcion:ntext',
             'adicional:ntext',
             'video',

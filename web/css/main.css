@@ -13,8 +13,14 @@
 
 body{
     font-family: regular !important;
+    overflow: hidden;
 }
-
+html, body {
+    margin:0 !important; /* remove default margin */
+    padding:0 !important; /* remove default padding */
+    width:100% !important; /* take full browser width */
+    height:100% !important; /* take full browser height*/
+}
 .wrap{
     z-index: 0;
     position: relative;
@@ -37,6 +43,10 @@ body{
 .container-fluid, .logos{
     padding-left: 0px !important;
     padding-right:  0px !important;
+}
+.row{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
 }
 /* LINKS SIN CAMBIOS AL HACER CLICK Y SIN SUBRAYADOS O CAMBIOS DE COLOR*/
 a{
@@ -66,6 +76,7 @@ a{
 }
 /**************** FIN BOTON BACK TO TOP */
 
+/******************************************** CABECERA ************************************/
 .logos{
     display: block;
     height: 140px;
@@ -83,6 +94,8 @@ a{
     float: right;
     margin-right: 5%;
 }
+
+/******************************************** FIN CABECERA ************************************/
 
 .site-index{
     padding: 0px !important;
@@ -174,24 +187,52 @@ a{
 .navbar-toggle .icon-bar {
     background-color: white !important;
 }
-@media (max-width: 1050px) {
+@media (max-width: 992px) {
     .sf-menu li a{
         font-size: small;
     }
+    .img_fiat_plan,.img_home{
+        display: none;
+    }
+    body *{
+        max-width: 992px;
+    }
+    .container-fluid > *{
+        max-width: 992px;
+    }
 }
-@media (max-width: 720px) {
+@media (max-width: 768px) {
     .sf-menu, .sf-menu * {
         list-style: circle !important;
     }
     .sf-menu li {
         float: none !important;
+        width: 300px;
     }
+    .img_fiat_plan,.img_home{
+        display: none;
+    }
+    body *{
+        max-width: 768px;
+    }
+    .container-fluid > *{
+        max-width: 768px;
+    }
+
 }
+
 
 @media (max-width: 480px) {
     .img_logo_piazza, .img_logo_fiat{
         float: left !important;
     }
+    body *{
+        max-width: 480px;
+    }
+    .container-fluid > *{
+        max-width: 480px;
+    }
+
 }
 /*******************************FIN CSS DEL NAV BAR*/
 
@@ -202,6 +243,10 @@ a{
 .bx-wrapper {
     border: 0px solid #fff !important;
     z-index: 0;
+}
+#bxslider1 .col-md-3{
+    padding: 0px;
+
 }
 /*******************************FIN PRIMER SLIDER*/
 
@@ -471,16 +516,8 @@ input[placeholder]:-ms-placeholder{ color:#000000; font-size:36px;}
 
 /****************************  PAGINA NOSOTROS **********************************************************************/
 
-.nuestra_empresa .thumbs_bx a img{
-    width: 32%;
-}
 
-.thumbs_bx .active{
-    opacity: 0.8;
-}
-.nuestra_empresa .bx-wrapper:first-of-type{
-    margin-bottom: 0px !important;
-}
+
 /**************************** FIN  PAGINA NOSOTROS **********************************************************************/
 
 /**************************** PLANES **********************************************************************/
@@ -507,6 +544,14 @@ input[placeholder]:-ms-placeholder{ color:#000000; font-size:36px;}
 }
 .nombre_modelo{
     font-size: 36px;
+}
+
+.thumbs_bx a img{
+    width: 32%;
+}
+
+.bx-wrapper:first-of-type{
+    margin-bottom: 0px !important;
 }
 /**************************** FIN PLANES **********************************************************************/
 

@@ -20,7 +20,7 @@ $this->title = 'Piazza';
 </div>
 
 <div class="form_contacto_contact_page">
-    <div class="col-md-12">
+    <div class="col-md-12   ">
         <div class="col-md-6 contact">
             <?php $form = ActiveForm::begin(); ?>
 
@@ -59,11 +59,11 @@ $this->title = 'Piazza';
     </div>
 </div>
 
-<div class="col-md-12">
+<div class="col-md-12   ">
     <img class="img-responsive" src="/images/contacto_img2.jpg">
 </div>
 
-<div class="col-md-12 sucursales_contacto">
+<div class="col-md-12    sucursales_contacto">
     <div class="col-md-4 sucursales">
         <p>
         <h4> CASA CENTRAL</h4>
@@ -98,7 +98,7 @@ $this->title = 'Piazza';
         </p>
     </div>
 </div>
-<div class="col-md-12">
+<div class="col-md-12   ">
     <div class="col-md-4 wrap_como_llegar">
         <a href="https://www.google.com.ar/maps/place/Piazza+S.A./@-26.8277697,-65.2146008,17z/data=!4m5!3m4!1s0x94225c6b4b1b7673:0x8374fc51d90cf2a2!8m2!3d-26.8278446!4d-65.2146951"
            class="btn btn-success boton_como_llegar " target="_blank">

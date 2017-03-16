@@ -39,7 +39,7 @@ $(document).ready(function(){
     $('#bxslider2').bxSlider({
         slideWidth: 5000,
         minSlides: 6,
-        maxSlides: 12,
+        maxSlides: 6,
         moveSlides: 1,
         slideMargin: 6,
         pager: false,

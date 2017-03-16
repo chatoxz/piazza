@@ -16,9 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Usuarios', ['user/index'], ['class' => 'btn btn-info']) ?>
         <?= Html::a('Modelos',  ['modelos/index'], ['class' => 'btn btn-info']) ?>
         <?= Html::a('Contactos',['contact/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Nosotros', ['nosotros/index'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Fotos Nosotros', ['nosotros/index'], ['class' => 'btn btn-info']) ?>
         <?= Html::a('Usados',   ['usados/index'], ['class' => 'btn btn-info']) ?>         
-        <?= Html::a('Slide',   ['slide/index'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Index fotos', ['fotos/index?id_tipo=3'], ['class' => 'btn btn-info']) ?>
     </p>
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?= $form->field($model, 'username')->label('Nombre de usuario') ?>
 
-            <?= $form->field($model, 'email')->label('Email') ?>
+            <?php // echo $form->field($model, 'email')->label('Email') ?>
 
             <?= $form->field($model, 'password')->passwordInput()->label('Contraseña') ?>
 

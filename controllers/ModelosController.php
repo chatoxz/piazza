@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use app\models\Contact;
+use app\models\Fotos;
+use app\models\TipoFoto;
 use app\models\User;
 use Yii;
 use app\models\Modelos;
@@ -72,8 +74,10 @@ class ModelosController extends Controller
     public function actionModelos()
     {
         $model = Modelos::find()->all();
+        $fotos = Fotos::find()->Where(['id_tipo' =>'2'])->all();
         return $this->render('modelos', [
             'model' => $model,
+            'fotos' => $fotos,
         ]);
     }
 
@@ -88,8 +92,8 @@ class ModelosController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
-    
-  /**
+
+    /**
      * Displays a detailed Modelos model.
      * @param integer $id
      * @return mixed
@@ -97,25 +101,24 @@ class ModelosController extends Controller
     public function actionDetalles($id)
     {
         $contacto = new Contact();
-        $model = new Contact();
         $enviado = 0;
-
+        $fotos = Fotos::find()->Where(['id_tipo' => 2])->andWhere(['id' => $id])->all();
         if ($contacto->load(Yii::$app->request->post()) && $contacto->save()) {
             $enviado = 1;
             return $this->render('detalles', [
                 'model' => $this->findModel($id),
                 'contacto' => $contacto,
                 'enviado' => $enviado,
+                'fotos' => $fotos,
             ]);
         } else {
             return $this->render('detalles', [
                 'model' => $this->findModel($id),
                 'contacto' => $contacto,
                 'enviado' => $enviado,
+                'fotos' => $fotos,
             ]);
         }
-
-
     }
 
     /**
@@ -174,7 +177,11 @@ class ModelosController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
+        $fotos = Fotos::find()->where(['id_tipo' => '2'])->andWhere(['id' => $id])->all();
+        var_dump($fotos);
+        foreach ($fotos as $foto){
+            $foto->delete();
+        }
         return $this->redirect(['index']);
     }
 

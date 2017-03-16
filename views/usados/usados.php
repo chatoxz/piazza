@@ -28,7 +28,7 @@ $this->title = 'Piazza';
         </div>
     <?php } ?>
 
-    <div class="col-md-12">
+    <div class="col-md-12   ">
         Ofrecemos vehículos usados de la marca Fiat así como de otros fabricantes de automóviles. Brindamos la mejor
         financiación y el respaldo de nuestro Concesionario, todos  nuestros usados son peritados por mecánicos
         capacitados  antes de ser recibidos y son acondicionados para que el cliente que lo adquiera disfrute su andar

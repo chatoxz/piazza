@@ -18,7 +18,7 @@ class FotosSearch extends Fotos
     public function rules()
     {
         return [
-            [['id_fotos', 'id', 'tipo'], 'integer'],
+            [['id_fotos', 'id', 'id_tipo', 'orden'], 'integer'],
             [['foto', 'link'], 'safe'],
         ];
     }
@@ -60,9 +60,13 @@ class FotosSearch extends Fotos
         // grid filtering conditions
         $query->andFilterWhere([
             'id_fotos' => $this->id_fotos,
+            'id' => $this->id,
+            'id_tipo' => $this->id_tipo,
+            'orden' => $this->orden,
         ]);
 
-        $query->andFilterWhere(['like', 'foto', $this->foto]);
+        $query->andFilterWhere(['like', 'nombre', $this->nombre])
+            ->andFilterWhere(['like', 'link', $this->link]);
 
         return $dataProvider;
     }
@@ -89,12 +93,14 @@ class FotosSearch extends Fotos
         $query->andFilterWhere([
             'id_fotos' => $this->id_fotos,
             'id' => $this->id,
-            'tipo' => $this->tipo,
+            'id_tipo' => $this->id_tipo,
+            'orden' => $this->orden,
         ]);
 
-        $query->andFilterWhere(['like', 'foto', $this->foto]);
+        $query->andFilterWhere(['like', 'foto', $this->foto])
+            ->andFilterWhere(['like', 'link', $this->link])
+            ->orderBy(['id' => SORT_ASC],['orden' => SORT_ASC]);
+
         return $dataProvider;
-
-
     }
 }
