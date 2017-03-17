@@ -50,4 +50,11 @@ class TipoFoto extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Fotos::className(), ['id_tipo' => 'id_tipo']);
     }
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getNombre()
+    {
+        return $this->hasMany(Fotos::className(), ['nombre' => 'nombre']);
+    }
 }

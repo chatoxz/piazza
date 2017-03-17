@@ -42,11 +42,16 @@ class FotosController extends Controller
 
         $searchModel->id_tipo = $id_tipo;
         $dataProvider = $searchModel->search2(Yii::$app->request->queryParams);
+        $tipo = TipoFoto::find()->Where(['id_tipo' => $id_tipo])->one();
+        $carpeta = $tipo->nombre;
+        var_dump($dataProvider);
         
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
             'id_tipo' => $id_tipo,
+            'carpeta' => $carpeta
+            
         ]);
     }
 
@@ -97,7 +102,7 @@ class FotosController extends Controller
     /**
      * Updates an existing Fotos model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param integer $id_fotos
      * @return mixed
      */
     public function actionUpdate($id_fotos){

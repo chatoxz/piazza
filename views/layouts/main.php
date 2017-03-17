@@ -83,7 +83,7 @@ PiazzaAsset::register($this);
         </ul>
     </nav>
 */ ?>
-    <div class="container-fluid big-container-fluid" style="margin-top: 0px; position: relative; z-index: -1;">
+    <div class="container-fluid big-container-fluid" style="margin-top: 0px; position: relative;">
         <?= $content ?>
     </div>
 

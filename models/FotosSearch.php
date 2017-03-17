@@ -73,7 +73,7 @@ class FotosSearch extends Fotos
 
     public function search2($params)
     {
-        $query = Fotos::find();
+        $query = Fotos::find()->with('idTipo');
 
         // add conditions that should always apply here
 
@@ -89,16 +89,19 @@ class FotosSearch extends Fotos
             return $dataProvider;
         }
 
+        $query->joinWith('idTipo');
+
         // grid filtering conditions
         $query->andFilterWhere([
             'id_fotos' => $this->id_fotos,
             'id' => $this->id,
-            'id_tipo' => $this->id_tipo,
+            'tipo_foto.id_tipo' => $this->id_tipo,
             'orden' => $this->orden,
         ]);
 
         $query->andFilterWhere(['like', 'foto', $this->foto])
             ->andFilterWhere(['like', 'link', $this->link])
+            ->andFilterWhere(['like', 'tipo_foto.nombre', $this->nombre])
             ->orderBy(['id' => SORT_ASC],['orden' => SORT_ASC]);
 
         return $dataProvider;

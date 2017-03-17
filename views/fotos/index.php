@@ -57,7 +57,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         $modelo_auto = Usados::find()->where(['id_usados'=> $data['id'] ])->one();
                         return $modelo_auto->nombre;
                     }
-                    return 'KAKA';
                 },
             ],
            /*
@@ -87,8 +86,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html',
                 'label' => 'Foto',
                 'value' => function ($data) {
+                    /*return Html::img('/images/'.$data['nombre'].'/' . $data['foto'],
+                        ['width' => '100px']);
+                    /*
                     if ($data['id_tipo'] == 1){
-                        return Html::img('/images/nosotros/' . $data['foto'],
+                        return Html::img('/images/'.$carpeta.'/' . $data['foto'],
                             ['width' => '100px']);
                     }
                     if ($data['id_tipo'] == 2){
@@ -106,7 +108,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     if ($data['id_tipo'] == 5){
                         return Html::img('/images/usados/' . $data['foto'],
                             ['width' => '100px']);
-                    }
+                    }*/
                 },
             ],
             'link',
