@@ -4,8 +4,10 @@ namespace app\controllers;
 
 use app\models\Fotos;
 use app\models\Modelos;
+use app\models\Usados;
 use app\models\User;
 use Yii;
+use yii\base\Model;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -24,6 +26,10 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'only' => ['logout'],
                 'rules' => [
+                    [
+                        'actions' => ['login', 'index','error','postventa'],
+                        'allow' => true,
+                    ],
                     [
                         'actions' => ['logout'],
                         'allow' => true,
@@ -64,6 +70,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $model = new Contact();
+        Yii::$app->view->params['customParam'] = new Modelos();
         $slide = Fotos::find()->andWhere(['id_tipo' => 3]) // define que son fotos del index
             ->andWhere(['id' => 1])->all();//es el id_slide
 
@@ -79,6 +86,26 @@ class SiteController extends Controller
             'slide2' => $slide2,
         ]);
     }
+
+    /**
+     * Displays a single Modelos model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionBuscar()
+    {
+        $model = new Modelos();
+        $model->load(Yii::$app->request->post());
+        $fotos = Fotos::find()->Where(['id_tipo' =>'2'])->all();
+        $modelos = Modelos::find()->filterWhere(['like', 'nombre', $model->nombre])->all();
+        $usados = Usados::find()->filterWhere(['like', 'nombre', $model->nombre])->all();
+        return $this->render('buscar', [
+            'model' => $modelos,
+            'usados' => $usados,
+            'fotos' => $fotos,
+        ]);
+    }
+
 
     /**
      * Displays postventa.
@@ -103,7 +130,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            $this->redirect(['user/index']);
+            $this->redirect(['modelos/index']);
         }
         return $this->render('login', [
             'model' => $model,

@@ -89,19 +89,19 @@ class FotosSearch extends Fotos
             return $dataProvider;
         }
 
-        $query->joinWith('idTipo');
+        //$query->joinWith('idTipo');
 
         // grid filtering conditions
         $query->andFilterWhere([
             'id_fotos' => $this->id_fotos,
             'id' => $this->id,
-            'tipo_foto.id_tipo' => $this->id_tipo,
+            'id_tipo' => $this->id_tipo,
             'orden' => $this->orden,
         ]);
 
         $query->andFilterWhere(['like', 'foto', $this->foto])
             ->andFilterWhere(['like', 'link', $this->link])
-            ->andFilterWhere(['like', 'tipo_foto.nombre', $this->nombre])
+            //->andFilterWhere(['like', 'tipo_foto.nombre', $this->nombre])
             ->orderBy(['id' => SORT_ASC],['orden' => SORT_ASC]);
 
         return $dataProvider;

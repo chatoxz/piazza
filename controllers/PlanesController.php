@@ -12,6 +12,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * PlanesController implements the CRUD actions for Planes model.
@@ -126,6 +127,11 @@ class PlanesController extends Controller
         $model = new Planes();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if($model->file = UploadedFile::getInstance($model, 'file')){
+                $model->file->saveAs('@web/../images/planes/' . $model->file->baseName . '.' . $model->file->extension);
+                $model->foto = $model->file->baseName. '.' . $model->file->extension;
+            }
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id_plan]);
         } else {
             return $this->render('create', [
@@ -145,6 +151,11 @@ class PlanesController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if($model->file = UploadedFile::getInstance($model, 'file')){
+                $model->file->saveAs('@web/../images/planes/' . $model->file->baseName . '.' . $model->file->extension);
+                $model->foto = $model->file->baseName. '.' . $model->file->extension;
+            }
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id_plan]);
         } else {
             return $this->render('update', [

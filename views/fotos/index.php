@@ -20,12 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?php //echo Html::a(Yii::t('app', 'Create Fotos'), ['create'], ['class' => 'btn btn-success']) ?>
         <?= Html::a('Nueva foto', ['fotos/create?id_tipo='.$id_tipo],['class' => 'btn btn-info']) ?>
-        <?= Html::a('Usuarios', ['user/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Modelos',  ['modelos/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Contactos',['contact/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Fotos Nosotros', ['nosotros/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Usados',   ['usados/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Index fotos', ['fotos/index?id_tipo=3'], ['class' => 'btn btn-info']) ?>
+        <?= $this->render('/layouts/menuAdmin') ?>
+
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -39,10 +35,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Modelo',
                 'value' => function ($data) {
                     if ($data['id_tipo'] == 1){}//no se usa
-                        if ($data['id_tipo'] == 2){
-                            $modelo_auto = Modelos::find()->where(['id_modelos'=> $data['id'] ])->one();
-                            return $modelo_auto->nombre;
-                        }
+                    /*if ($data['id_tipo'] == 2){
+                        $modelo_auto = Modelos::find()->where(['id_modelos'=> $data['id'] ])->one();
+                        return $modelo_auto->nombre;
+                    }*/
                     if ($data['id_tipo'] == 3){
                         if($data['id'] == 1)
                             return 'Slider1';
@@ -51,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                     if ($data['id_tipo'] == 4){
                         return Html::img('/images/novedades/' . $data['foto'],
-                            ['width' => '100px']);
+                            ['width' => '200px']);
                     }
                     if ($data['id_tipo'] == 5){
                         $modelo_auto = Usados::find()->where(['id_usados'=> $data['id'] ])->one();
@@ -59,56 +55,56 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                 },
             ],
-           /*
-            [
-                //hace referencia a  public function attributeLabels()
-                'attribute'=>'id_tipo',
-                'label'=>'Tipo',
-                'value'=>'idTipo.nombre',
-            ],
-                'attribute' => 'img',
-                'format' => 'html',
-                'label' => 'Tipo',
-                'value' => function ($data) {
-                    if ($data['id_tipo'] == 1){
-                        return 'Slide';
-                    }
-                    if ($data['id_tipo'] == 2){
-                        return 'Modelos';
-                    }
-                    if ($data['id_tipo'] == 3){
-                        return 'Nosotros';
-                    }
-                },
-            ],*/
+            /*
+             [
+                 //hace referencia a  public function attributeLabels()
+                 'attribute'=>'id_tipo',
+                 'label'=>'Tipo',
+                 'value'=>'idTipo.nombre',
+             ],
+                 'attribute' => 'img',
+                 'format' => 'html',
+                 'label' => 'Tipo',
+                 'value' => function ($data) {
+                     if ($data['id_tipo'] == 1){
+                         return 'Slide';
+                     }
+                     if ($data['id_tipo'] == 2){
+                         return 'Modelos';
+                     }
+                     if ($data['id_tipo'] == 3){
+                         return 'Nosotros';
+                     }
+                 },
+             ],*/
             [
                 'attribute' => 'foto',
                 'format' => 'html',
                 'label' => 'Foto',
                 'value' => function ($data) {
                     /*return Html::img('/images/'.$data['nombre'].'/' . $data['foto'],
-                        ['width' => '100px']);
-                    /*
+                        ['width' => '200px']);*/
+
                     if ($data['id_tipo'] == 1){
-                        return Html::img('/images/'.$carpeta.'/' . $data['foto'],
-                            ['width' => '100px']);
+                        return Html::img('/images/nosotros/' . $data['foto'],
+                            ['width' => '200px']);
                     }
                     if ($data['id_tipo'] == 2){
                         return Html::img('/images/modelos/' . $data['foto'],
-                            ['width' => '100px']);
+                            ['width' => '200px']);
                     }
                     if ($data['id_tipo'] == 3){
                         return Html::img('/images/index/' . $data['foto'],
-                            ['width' => '100px']);
+                            ['width' => '200px']);
                     }
                     if ($data['id_tipo'] == 4){
                         return Html::img('/images/novedades/' . $data['foto'],
-                            ['width' => '100px']);
+                            ['width' => '200px']);
                     }
                     if ($data['id_tipo'] == 5){
                         return Html::img('/images/usados/' . $data['foto'],
-                            ['width' => '100px']);
-                    }*/
+                            ['width' => '200px']);
+                    }
                 },
             ],
             'link',

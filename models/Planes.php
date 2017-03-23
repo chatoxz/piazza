@@ -18,6 +18,7 @@ use Yii;
  */
 class Planes extends \yii\db\ActiveRecord
 {
+    public $file;
     /**
      * @inheritdoc
      */
@@ -38,6 +39,7 @@ class Planes extends \yii\db\ActiveRecord
             [['nombre'], 'string', 'max' => 155],
             [['video'], 'string', 'max' => 255],
             [['id_modelos'], 'exist', 'skipOnError' => true, 'targetClass' => Modelos::className(), 'targetAttribute' => ['id_modelos' => 'id_modelos']],
+            [['file'], 'file'],
         ];
     }
 

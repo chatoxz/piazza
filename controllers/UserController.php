@@ -122,10 +122,12 @@ class UserController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model->setPassword($model->password);
+            $model->email = "noneedformail@noneedformail.com";
             $model->generateAuthKey();
             $model->save();
             return $this->redirect(['index']);
         } else {
+            echo 'else';
             return $this->render('update', [
                 'model' => $model,
             ]);

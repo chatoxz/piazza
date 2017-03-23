@@ -7,6 +7,7 @@ use app\models\TipoFoto;
 use Yii;
 use app\models\Fotos;
 use app\models\FotosSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -23,6 +24,20 @@ class FotosController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['login', 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['logout', 'index','view','create','update','delete','indexfotos'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -36,15 +51,16 @@ class FotosController extends Controller
      * Lists all Fotos models.
      * @return mixed
      */
-    public function actionIndex($id_tipo)
+    public function actionIndex($id_tipo,$id_modelo)
     {
         $searchModel = new FotosSearch();
 
         $searchModel->id_tipo = $id_tipo;
+        $searchModel->id = $id_modelo;
         $dataProvider = $searchModel->search2(Yii::$app->request->queryParams);
         $tipo = TipoFoto::find()->Where(['id_tipo' => $id_tipo])->one();
         $carpeta = $tipo->nombre;
-        var_dump($dataProvider);
+        //var_dump($dataProvider);
         
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -52,6 +68,28 @@ class FotosController extends Controller
             'id_tipo' => $id_tipo,
             'carpeta' => $carpeta
             
+        ]);
+    }
+ /**
+     * Lists all Fotos for index.
+     * @return mixed
+     */
+    public function actionIndexfotos($id_tipo)
+    {
+        $searchModel = new FotosSearch();
+
+        $searchModel->id_tipo = $id_tipo;
+        $dataProvider = $searchModel->search2(Yii::$app->request->queryParams);
+        $tipo = TipoFoto::find()->Where(['id_tipo' => $id_tipo])->one();
+        $carpeta = $tipo->nombre;
+        //var_dump($dataProvider);
+
+        return $this->render('indexfotos', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'id_tipo' => $id_tipo,
+            'carpeta' => $carpeta
+
         ]);
     }
 
@@ -88,7 +126,11 @@ class FotosController extends Controller
             if($model->id == 0)
                 $model->id = 1;
             $model->save();
-            return $this->redirect(['index', 'id_tipo' => $model->id_tipo]);
+            if($model->id_tipo == 2)
+                return $this->redirect(['index', 'id_tipo' => $model->id_tipo,'id_modelo' => $model->id]);
+            if($model->id_tipo == 3)
+                return $this->redirect(['indexfotos', 'id_tipo' => $model->id_tipo]);
+
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -117,7 +159,10 @@ class FotosController extends Controller
             if($model->id == 0)
                 $model->id = 1;
             $model->save();
-            return $this->redirect(['index', 'id_tipo' => $model->id_tipo]);
+            if($model->id_tipo == 2)
+                return $this->redirect(['index', 'id_tipo' => $model->id_tipo,'id_modelo' => $model->id]);
+            if($model->id_tipo == 3)
+                return $this->redirect(['indexfotos', 'id_tipo' => $model->id_tipo]);
         } else {
             return $this->render('update', [
                 'model' => $model,

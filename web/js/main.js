@@ -36,10 +36,19 @@ $(document).ready(function(){
         //easing: 'swing'
     });
     //2DO SLIDER DEL HOME ES EL PEQUEÑO CON LOS AUTOS
+    var width = $(window).width();
+    slides = 6
+    if (width < 768  )  {
+        slides = 4
+    }
+    if (width < 480   )  {
+        slides = 2
+    }
+
     $('#bxslider2').bxSlider({
         slideWidth: 5000,
-        minSlides: 6,
-        maxSlides: 6,
+        minSlides: slides,
+        maxSlides: slides,
         moveSlides: 1,
         slideMargin: 6,
         pager: false,

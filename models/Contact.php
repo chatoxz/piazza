@@ -32,6 +32,7 @@ class Contact extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['nombre','email'], 'required'],
             [['email', 'nombre', 'tel', 'domicilio'], 'string', 'max' => 255],
             [['msj'], 'string', 'max' => 1000],
             [['desde', 'hasta'], 'string', 'max' => 45],
@@ -63,20 +64,22 @@ class Contact extends \yii\db\ActiveRecord
      */
     public function contact($email)
     {
-        $content  = "<p>Email: ". $this->email . "</p>";
-        $content .= "<p>Nombre: ". $this->nombre . "</p>";
-        $content .= "<p>Telefono: ". $this->tel . "</p>";
-        $content .= "<p>Horarios de contacto: ". $this->desde ." ".$this->hasta. "</p>";
-        $content .= "<p>Domicilio: ". $this->domicilio." </p>";
-        $content .= "<p>Mensaje: ". $this->msj . "</p>";
-        if ($this->validate()) {
-            Yii::$app->mailer->compose('@app/mail/layouts/html.php', ["content" => $content])
-                ->setTo($email)
-                ->setFrom([$this->email => $this->nombre])
-                ->setSubject("Asunto: Contacto")
-                ->setTextBody($this->msj)
-                ->send();
-            return true;
+        if ($this->email =! ""){
+            $content  = "<p>Email: ". $this->email . "</p>";
+            $content .= "<p>Nombre: ". $this->nombre . "</p>";
+            $content .= "<p>Telefono: ". $this->tel . "</p>";
+            $content .= "<p>Horarios de contacto: ". $this->desde ." ".$this->hasta. "</p>";
+            $content .= "<p>Domicilio: ". $this->domicilio." </p>";
+            $content .= "<p>Mensaje: ". $this->msj . "</p>";
+            if ($this->validate()) {
+                Yii::$app->mailer->compose('@app/mail/layouts/html.php', ["content" => $content])
+                    ->setTo($email)
+                    ->setFrom([$this->email => $this->nombre])
+                    ->setSubject("Asunto: Contacto")
+                    ->setTextBody($this->msj)
+                    ->send();
+                return true;
+            }
         }
         return false;
     }

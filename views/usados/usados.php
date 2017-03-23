@@ -14,20 +14,19 @@ $this->title = 'Piazza';
     <div class="container">USADOS</div>
 </div>
 
-<div class=" nuestros_usados">
-    <?php
-    foreach ($model as $img){ ?>
-        <div class="col-md-4">
-            <a href="/modelos/detalles?id=<?php echo $img->id_usados ?>" title="View" aria-label="View">
+<div class=" nuestros_usados container">
+    <div class="clearfix">
+        <?php
+        foreach ($model as $img){ ?>
+            <div class="col-md-4 col-sm-6  wrap_usados">
                 <img src="/images/modelos/<?php echo $img->foto ?>" alt="">
                 <span class="descripcion_usado"><?php
                     $img->descripcion = str_replace("\n", "<br />", $img->descripcion);
                     echo $img->descripcion ?>
                 </span>
-            </a>
-        </div>
-    <?php } ?>
-
+            </div>
+        <?php } ?>
+    </div>
     <div class="col-md-12   ">
         Ofrecemos vehículos usados de la marca Fiat así como de otros fabricantes de automóviles. Brindamos la mejor
         financiación y el respaldo de nuestro Concesionario, todos  nuestros usados son peritados por mecánicos

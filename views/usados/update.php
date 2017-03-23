@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Usados */
 
-$this->title = 'Update Usados: ' . $model->id_usados;
+$this->title = 'Actualizar Usados: ' . $model->id_usados;
 $this->params['breadcrumbs'][] = ['label' => 'Usados', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id_usados, 'url' => ['view', 'id' => $model->id_usados]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Actualizar';
 ?>
 <div class="usados-update container">
 

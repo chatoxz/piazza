@@ -14,10 +14,13 @@ use Yii;
  * @property string $autor
  * @property string $fecha
  * @property string $foto
+ * @property string $contenido2
+ * @property string $foto2
  */
 class Novedades extends \yii\db\ActiveRecord
 {
     public $file;
+    public $file2;
     /**
      * @inheritdoc
      */
@@ -32,11 +35,13 @@ class Novedades extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['contenido'], 'string'],
+            [['contenido', 'contenido2'], 'required'],
+            [['contenido', 'contenido2'], 'string'],
             [['fecha'], 'safe'],
-            [['titulo', 'subtitulo', 'foto'], 'string', 'max' => 155],
+            [['titulo', 'subtitulo', 'foto', 'foto2'], 'string', 'max' => 155],
             [['autor'], 'string', 'max' => 100],
             [['file'], 'file'],
+            [['file2'], 'file'],
         ];
     }
 
@@ -46,13 +51,15 @@ class Novedades extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_novedades' => 'Id Novedades',
-            'titulo' => 'Titulo',
-            'contenido' => 'Contenido',
-            'subtitulo' => 'Subtitulo',
-            'autor' => 'Autor',
-            'fecha' => 'Fecha',
-            'foto' => 'Foto',
+            'id_novedades' => Yii::t('app', 'Id Novedades'),
+            'titulo' => Yii::t('app', 'Titulo'),
+            'contenido' => Yii::t('app', 'Contenido'),
+            'subtitulo' => Yii::t('app', 'Subtitulo'),
+            'autor' => Yii::t('app', 'Autor'),
+            'fecha' => Yii::t('app', 'Fecha'),
+            'foto' => Yii::t('app', 'Foto'),
+            'contenido2' => Yii::t('app', 'Contenido principal'),
+            'foto2' => Yii::t('app', 'Foto2'),
         ];
     }
 }

@@ -13,6 +13,9 @@ use Yii;
  * @property string $descripcion
  * @property string $adicional
  * @property string $video
+ * @property integer $convencionales
+ *
+ * @property Planes[] $planes
  */
 class Modelos extends \yii\db\ActiveRecord
 {
@@ -33,6 +36,7 @@ class Modelos extends \yii\db\ActiveRecord
         return [
             [['nombre'], 'required'],
             [['descripcion', 'adicional'], 'string'],
+            [['convencionales'], 'integer'],
             [['nombre', 'foto'], 'string', 'max' => 155],
             [['video'], 'string', 'max' => 255],
             [['file'], 'file'],
@@ -45,12 +49,21 @@ class Modelos extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_modelos' => 'Id Modelos',
-            'nombre' => 'Nombre',
-            'foto' => 'Foto',
-            'descripcion' => 'Descripcion',
-            'adicional' => 'Adicional',
-            'video' => 'Video',
+            'id_modelos' => Yii::t('app', 'Id Modelos'),
+            'nombre' => Yii::t('app', 'Nombre'),
+            'foto' => Yii::t('app', 'Foto'),
+            'descripcion' => Yii::t('app', 'Descripcion'),
+            'adicional' => Yii::t('app', 'Adicional'),
+            'video' => Yii::t('app', 'Video'),
+            'convencionales' => Yii::t('app', 'Convencionales'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPlanes()
+    {
+        return $this->hasMany(Planes::className(), ['id_modelos' => 'id_modelos']);
     }
 }

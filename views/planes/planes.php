@@ -42,15 +42,8 @@ $this->title = 'Piazza';
         <?php foreach ($planes as $plan){ ?>
             <div class="col-md-6 wrap_img_modelo">
                 <a href="/planes/detalles?id=<?php echo $plan->id_plan?>&id_modelos=<?php echo $plan->id_modelos ?>" title="View" aria-label="View">
-                    <img src="/images/modelos/<?php
-                    $bandera = 0;
-                    foreach ($fotos as $foto){
-                        if($foto->id == $plan->id_modelos){
-                            echo $foto->foto;
-                            $bandera = 1;
-                            break;
-                        }
-                    }
+                    <img src="/images/planes/<?php
+                            echo $plan->foto;
                     ?>" alt="">
                     <span class="nombre_modelo"><?php echo $plan->nombre ?></span>
                 </a>

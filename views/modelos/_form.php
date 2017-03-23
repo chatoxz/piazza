@@ -21,6 +21,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'video')->textInput(['maxlength' => true]) ?>
 
+    <?php echo $form->field($model, 'convencionales')->label('Convencionales')->dropDownList(['0' => 'No convencionales','1' => 'Convencionales']); ?>
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Crear' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

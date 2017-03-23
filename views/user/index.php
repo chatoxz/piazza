@@ -17,12 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p >
         <?= Html::a('Crear usuarios', ['signup'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Usuarios', ['user/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Modelos',  ['modelos/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Contactos',['contact/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Fotos Nosotros', ['nosotros/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Usados',   ['usados/index'], ['class' => 'btn btn-info']) ?>         
-        <?= Html::a('Index fotos', ['fotos/index?id_tipo=3'], ['class' => 'btn btn-info']) ?>
+        <?= $this->render('/layouts/menuAdmin') ?>
+
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -37,8 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
             //'password_reset_token',
             // 'email:email',
             // 'status',
-             'role',
-             'created_at',
+            // 'role',
+            // 'created_at',
             // 'updated_at',
 
             ['class' => 'yii\grid\ActionColumn'],

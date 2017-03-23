@@ -17,12 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Crear Novedades', ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Usuarios', ['user/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Modelos',  ['modelos/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Contactos',['contact/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Fotos Nosotros', ['nosotros/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Usados',   ['usados/index'], ['class' => 'btn btn-info']) ?>         
-        <?= Html::a('Index fotos', ['fotos/index?id_tipo=3'], ['class' => 'btn btn-info']) ?>
+        <?= $this->render('/layouts/menuAdmin') ?>
+
 
     </p>
     <?= GridView::widget([
@@ -31,14 +27,32 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id_novedades',
+            //'id_novedades',
             'titulo',
             'contenido:ntext',
+            'contenido2:ntext',
             'subtitulo',
             'autor',
             // 'fecha',
             // 'foto',
-
+            [
+                'attribute' => 'id',
+                'format' => 'html',
+                'label' => 'Foto1',
+                'value' => function ($data) {
+                    return Html::img('/images/novedades/' . $data['foto'],
+                        ['width' => '100px']);
+                },
+            ],
+            [
+                'attribute' => 'id',
+                'format' => 'html',
+                'label' => 'Foto2',
+                'value' => function ($data) {
+                    return Html::img('/images/novedades/' . $data['foto2'],
+                        ['width' => '100px']);
+                },
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Nosotros */
 
-$this->title = $model->id_nosotros;
+$this->title = 'Nombre: '.$model->foto;
 $this->params['breadcrumbs'][] = ['label' => 'Nosotros', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,27 +15,33 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id_nosotros], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id_nosotros], [
+        <?= Html::a('Actualizar', ['update', 'id' => $model->id_nosotros], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Eliminar', ['delete', 'id' => $model->id_nosotros], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('app', 'Esta seguro que desea eliminar el item? la accion es IRREVERSIBLE.'),
                 'method' => 'post',
             ],
         ]) ?>
-        <?= Html::a('Usuarios', ['user/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Modelos',  ['modelos/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Contactos',['contact/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Fotos Nosotros', ['nosotros/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Usados',   ['usados/index'], ['class' => 'btn btn-info']) ?>        
-        <?= Html::a('Index fotos', ['fotos/index?id_tipo=3'], ['class' => 'btn btn-info']) ?>
-    </p>
+        <?= $this->render('/layouts/menuAdmin') ?>
 
+    </p>
+    <?php $dir_imagen = '@web/../images/nosotros/'.$model->foto;?>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id_nosotros',
             'foto',
+            [
+                'attribute'=>'Foto',
+                'value'=> $dir_imagen,
+                'format' => ['image',[
+                    'width'=>'200',
+                    'alt' => 'Sin imagen',
+                    'onclick'=> "window.open('../$dir_imagen', '_blank')",
+                ]
+                ]
+            ],
         ],
     ]) ?>
 

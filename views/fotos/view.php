@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id_fotos], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'Actualizar'), ['update', 'id' => $model->id_fotos], ['class' => 'btn btn-primary']) ?>
         <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id_fotos], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -23,14 +23,26 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
-        <?= Html::a('Usuarios', ['user/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Modelos',  ['modelos/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Contactos',['contact/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Fotos Nosotros', ['nosotros/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Usados',   ['usados/index'], ['class' => 'btn btn-info']) ?>         
-        <?= Html::a('Index fotos', ['fotos/index?id_tipo=3'], ['class' => 'btn btn-info']) ?>
-    </p>
+        <?= $this->render('/layouts/menuAdmin') ?>
 
+    </p>
+    <?php
+    if ($model->id_tipo == 1){
+        $dir_imagen = '@web/../images/planes/'.$model->foto;
+    }
+    if ($model->id_tipo == 2){
+        $dir_imagen = '@web/../images/modelos/'.$model->foto;
+    }
+    if ($model->id_tipo == 3){
+        $dir_imagen = '@web/../images/index/'.$model->foto;
+    }
+    if ($model->id_tipo == 4){
+        $dir_imagen = '@web/../images/novedades/'.$model->foto;
+    }
+    if ($model->id_tipo == 5){
+        $dir_imagen = '@web/../images/usados/'.$model->foto;
+    }
+    ?>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -38,6 +50,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'id_tipo',
             'foto',
+            [
+                'attribute'=>'Foto',
+                'value'=> $dir_imagen,
+                'format' => ['image',[
+                    'width'=>'200',
+                    'height'=>'200',
+                    'alt' => 'Sin imagen',
+                    'onclick'=> "window.open('../$dir_imagen', '_blank')",
+                ]
+                ]
+            ],
             'orden',
         ],
     ]) ?>

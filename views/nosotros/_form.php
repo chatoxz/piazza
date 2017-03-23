@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'foto')->textInput(['maxlength' => true]) ?>
+    <?php //echo $form->field($model, 'foto')->textInput(['maxlength' => true]) ?>
 
     <table class="table">
         <td>

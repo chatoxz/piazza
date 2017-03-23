@@ -46,6 +46,30 @@ use yii\widgets\ActiveForm;
         </td>
     </table>
 
+    <table class="table">
+        <td>
+            <?php //********* IMPORTANTE UNA VARIABLE ESTA CREADA EN LA CLASE PERSONA, public $file con elllla se carga el archivo ?>
+            <?= $form->field($model, 'file2')->fileInput()->label($model->foto2 ? $model->foto2 : '' ) ?>
+
+            <?php
+            //DATOS PARA QUE SE VEA LA FOTO2
+            $dir = \Yii::getAlias('@webroot')."\images\novedades\ ". $model->foto2;
+            $dir = str_replace(" ","",$dir);
+            $options = [
+                'width'=>'200px',
+                'height'=>'auto',
+                'alt' => $model->foto2 ? $model->foto2 : 'Sin foto2',
+            ];
+            if($model->foto2)
+                echo  "<a href = '../images/novedades/".$model->foto2."' target='_blank' >".Html::img('@web/../images/novedades/'.$model->foto2, $options). "</a>";
+            else
+                echo "No tiene foto2" ;
+            //echo '<img src="@web/../images/novedades/'.$model->foto2.'" alt=" ' . $model->foto2. ' " /> ';
+            //echo $form->field($model, 'foto2')->fileInput();
+            ?>
+        </td>
+    </table>
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Crear' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

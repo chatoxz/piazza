@@ -30,7 +30,7 @@ class UsadosController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index','view','create','update'.'delete'],
+                        'actions' => ['logout', 'index','view','create','update','delete'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],

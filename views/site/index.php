@@ -26,7 +26,9 @@ $this->title = 'Piazza';
     <?php
     foreach ($slide2 as $img){ ?>
         <li class="col-md-2 col-sm-2 col-xs-2" style="padding-left: 0px !important;padding-right: 0px !important;">
-            <img src="/images/index/<?php echo $img->foto ?>" />
+            <a href="<?php echo $img->link ?>" title="View" aria-label="View">
+                <img src="/images/index/<?php echo $img->foto ?>" alt="">
+            </a>
         </li>
     <?php } ?>
 </ul>
@@ -66,7 +68,7 @@ $this->title = 'Piazza';
 
         <?php ActiveForm::end(); ?>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 wrap_img_home">
         <img class="img-responsive img_home" src="/images/autos/6.jpg">
     </div>
 </div>
@@ -75,33 +77,30 @@ $this->title = 'Piazza';
     <div class="col-md-6" >
         <div class="wrap_planes">
             <a style="z-index: 1" href="/planes/planes">
-                <h1>FINANCIACION DE FABRICA</h1>
-                <div class="triangulo_home">
-                    <img class="img-responsive img_home_planes" src="/images/autos/5.jpg">
-                    <button class="btn btn-default">VER MÁS</button>
-                </div>
+               <!-- <h1>FINANCIACION DE FABRICA</h1>-->
+                <img class="img-responsive img_home_planes" src="/images/index/planes.jpg">
+                <button class="btn btn-default">VER MÁS</button>
             </a>
         </div>
     </div>
     <div class="col-md-6" >
         <div class="wrap_postventa">
             <a href="/site/postventa">
-                <h1>POST VENTA</h1>
-                <div class="triangulo_home">
-                    <img class="img-responsive img_home_postventa" src="/images/autos/7.jpg">
-                    <button class="btn btn-success">
-                        <span> SACÁ TURNO</span>
-                        <span> ONLINE</span>
-                    </button>
-                </div>
+                <!--<h1>POST VENTA</h1>-->
+                <img class="img-responsive img_home_postventa" src="/images/index/postventa.jpg">
+                <button class="btn btn-success">
+                    <span> SACÁ TURNO</span>
+                    <span> ONLINE</span>
+                </button>
             </a>
         </div>
     </div>
 </div>
 
 <a href="/novedades/novedades">
-    <div class="col-md-12    novedades">
-        <h3>NOVEDADES</h3>
+    <div class="col-md-12 novedades">
+        <img class="img-responsive" src="/images/index/novedades.jpg">
+        <!--<h3>NOVEDADES</h3>-->
     </div>
 </a>
 

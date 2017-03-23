@@ -26,7 +26,7 @@ class NovedadesController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error','novedades'],
+                        'actions' => ['login', 'error','novedades','detalles'],
                         'allow' => true,
                     ],
                     [
@@ -65,14 +65,26 @@ class NovedadesController extends Controller
      *
      * @return string
      */
-    public function actionNovedades()
+    public function actionNovedades($indice)
     {
         $model = Novedades::find()->all();
         return $this->render('novedades', [
             'model' => $model,
+            'indice' => (int)$indice,
         ]);
     }
 
+    /**
+     * Displays a single detalle Novedades.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDetalles($id)
+    {
+        return $this->render('detalles', [
+            'model' => $this->findModel($id),
+        ]);
+    }
 
     /**
      * Displays a single Novedades model.
@@ -100,6 +112,10 @@ class NovedadesController extends Controller
                 $model->file->saveAs('@web/../images/novedades/' . $model->file->baseName . '.' . $model->file->extension);
                 $model->foto = $model->file->baseName. '.' . $model->file->extension;
             }
+            if($model->file2 = UploadedFile::getInstance($model, 'file2')){
+                $model->file2->saveAs('@web/../images/novedades/' . $model->file2->baseName . '.' . $model->file2->extension);
+                $model->foto2 = $model->file2->baseName. '.' . $model->file2->extension;
+            }
             $model->save();
             return $this->redirect(['view', 'id' => $model->id_novedades]);
         } else {
@@ -123,6 +139,10 @@ class NovedadesController extends Controller
             if($model->file = UploadedFile::getInstance($model, 'file')){
                 $model->file->saveAs('@web/../images/novedades/' . $model->file->baseName . '.' . $model->file->extension);
                 $model->foto = $model->file->baseName. '.' . $model->file->extension;
+            }
+            if($model->file2 = UploadedFile::getInstance($model, 'file2')){
+                $model->file2->saveAs('@web/../images/novedades/' . $model->file2->baseName . '.' . $model->file2->extension);
+                $model->foto2 = $model->file2->baseName. '.' . $model->file2->extension;
             }
             $model->save();
             return $this->redirect(['view', 'id' => $model->id_novedades]);

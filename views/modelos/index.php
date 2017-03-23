@@ -17,12 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Crear Modelos', ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Usuarios', ['user/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Modelos',  ['modelos/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Contactos',['contact/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Fotos Nosotros', ['nosotros/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Usados',   ['usados/index'], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Index fotos', ['fotos/index?id_tipo=3'], ['class' => 'btn btn-info']) ?>
+        <?= $this->render('/layouts/menuAdmin') ?>
+
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -33,9 +29,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_modelos',
             'nombre',
             //'foto',
+            [
+                'attribute' => 'convencionales',
+                'format' => 'html',
+                'label' => 'convencionales',
+                'value' => function ($data) {
+                    return $data['convencionales'] == 1 ? 'Si' : 'No';
+                },
+            ],
             'descripcion:ntext',
             'adicional:ntext',
-            // 'video',
+            'video',
 
             [
                 'class' => 'yii\grid\ActionColumn',
@@ -64,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         ]);
                     },
                     'fotos' => function ($model,$key,$index) {
-                        $url = "/fotos/index?id_tipo=2";
+                        $url = "/fotos/index?id_tipo=2&id_modelo=".$key->id_modelos;
                         return Html::a(
                             '<span style="padding-right: 10px;padding-left: 10px;" class="glyphicon glyphicon-picture"></span>', $url);
                     },
