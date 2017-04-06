@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?php //echo Html::a(Yii::t('app', 'Create Fotos'), ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Nueva foto', ['fotos/create?id_tipo='.$id_tipo],['class' => 'btn btn-info']) ?>
+        <?= Html::a('Nueva foto', ['create', 'id_tipo' => $id_tipo ],['class' => 'btn btn-success']) ?>
         <?= $this->render('/layouts/menuAdmin') ?>
 
     </p>
@@ -86,23 +86,23 @@ $this->params['breadcrumbs'][] = $this->title;
                         ['width' => '100px']);*/
 
                     if ($data['id_tipo'] == 1){
-                        return Html::img('/images/nosotros/' . $data['foto'],
+                        return Html::img('/web/images/nosotros/' . $data['foto'],
                             ['width' => '200px']);
                     }
                     if ($data['id_tipo'] == 2){
-                        return Html::img('/images/modelos/' . $data['foto'],
+                        return Html::img('/web/images/modelos/' . $data['foto'],
                             ['width' => '200px']);
                     }
                     if ($data['id_tipo'] == 3){
-                        return Html::img('/images/index/' . $data['foto'],
+                        return Html::img('/web/images/index/' . $data['foto'],
                             ['width' => '200px']);
                     }
                     if ($data['id_tipo'] == 4){
-                        return Html::img('/images/novedades/' . $data['foto'],
+                        return Html::img('/web/images/novedades/' . $data['foto'],
                             ['width' => '200px']);
                     }
                     if ($data['id_tipo'] == 5){
-                        return Html::img('/images/usados/' . $data['foto'],
+                        return Html::img('/web/images/usados/' . $data['foto'],
                             ['width' => '200px']);
                     }
                 },
@@ -117,14 +117,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'template' => '{update}{delete}',
                 'buttons' => [
                     'update' => function ($model,$key,$index) {
-                        $url = "/fotos/update?id_fotos=".$key->id_fotos;
+                        $url = "/fotos/update";
                         return Html::a(
-                            '<span style="padding-right: 10px;" class="glyphicon glyphicon-pencil"></span>', $url);
+                            '<span style="padding-right: 10px;" class="glyphicon glyphicon-pencil"></span>', [$url, 'id_fotos' => $key->id_fotos ]);
                     },
                     'delete' => function ($model,$key,$index) {
-                        $url = "/fotos/delete?id_fotos=".$key->id_fotos;
+                        $url = "/fotos/delete";
                         return Html::a(
-                            '<span style="padding-right: 10px;" class="glyphicon glyphicon-trash"></span>', $url);
+                            '<span style="padding-right: 10px;" class="glyphicon glyphicon-trash"></span>', [$url, 'id_fotos' => $key->id_fotos ]);
                     },
                 ],
             ],

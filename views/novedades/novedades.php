@@ -32,12 +32,12 @@ $this->title = 'Piazza';
                     <?php // echo $nov->subtitulo ?> </br>
                     <?php // echo $nov->autor ?> </br>
                     <?php // echo $nov->fecha ?>
-                    <a href="/novedades/detalles?id=<?php echo $nov->id_novedades ?>" title="View" aria-label="View">
+                    <a href="/web/index.php?r=novedades%2Fdetalles&id=<?php echo $nov->id_novedades ?>" title="View" aria-label="View">
                         <div class="ver_mas">Ver más </div>
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <img class="img-responsive img_home" src="/images/novedades/<?php echo $nov->foto ?>">
+                    <img class="img-responsive img_home" src="/web/images/novedades/<?php echo $nov->foto ?>">
                 </div>
             </div>
             <?php
@@ -45,9 +45,8 @@ $this->title = 'Piazza';
         $i++;
     }?>
     <div class="mas_novedades" style="cursor: pointer;margin-left: 30px; color: #96172E;font-family: semibold">
-        <?php $indice = $indice + 2;
-        $url = "/novedades/novedades?indice=$indice"; ?>
-        <a href="<?php echo $url ?> ">Mas Novedades</a>
+        <?php $indice = $indice + 2; ?>
+        <?= Html::a('Mas Novedades', ['novedades', 'indice' => $indice], ['class' => '']) ?>
     </div>
 </div>
 

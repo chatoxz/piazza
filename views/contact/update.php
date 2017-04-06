@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Contact */
 
-$this->title = 'Actualizar Contact: ' . $model->id_contact;
+$this->title = 'Actualizar Contact: ' . $model->nombre;
 $this->params['breadcrumbs'][] = ['label' => 'Contacts', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id_contact, 'url' => ['view', 'id' => $model->id_contact]];
 $this->params['breadcrumbs'][] = 'Actualizar';

@@ -10,10 +10,11 @@ use yii\widgets\ActiveForm;
 
 <div class="modelos-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php //$form = ActiveForm::begin(); ?>
+    <?php $url = $model->isNewRecord ? 'modelos/create' : 'modelos/update';
+    $form = ActiveForm::begin(['action' =>[$url, 'id' => $model->id_modelos,], 'method' => 'post',]); ?>
 
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
-
 
     <?= $form->field($model, 'descripcion')->textarea(['rows' => 6]) ?>
 

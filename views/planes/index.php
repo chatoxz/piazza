@@ -36,8 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html',
                 'label' => 'Modelo',
                 'value' => function ($data) {
-                    return Html::img('/images/planes/' . $data['foto'],
-                        ['width' => '200px']);
+                    return Html::img('/web/images/planes/' . $data['foto'],['width' => '200px']);
                 },
             ],
             ['class' => 'yii\grid\ActionColumn'],

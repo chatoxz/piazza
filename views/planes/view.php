@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a(Yii::t('app', 'Actualizar'), ['update', 'id' => $model->id_plan], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id_plan], [
+        <?= Html::a(Yii::t('app', 'Borrar'), ['delete', 'id' => $model->id_plan], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     </p>
 
-    <?php $dir_imagen = '@web/../images/planes/'.$model->foto;?>
+    <?php $dir_imagen = '@web/images/planes/'.$model->foto;?>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -41,7 +41,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => ['image',[
                     'width'=>'50%',
                     'alt' => 'Sin imagen',
-                    'onclick'=> "window.open('../$dir_imagen', '_blank')",
+                    //no me anda en el servidor no se como hacerlo andar sin el pretty url...
+                    //'onclick'=> "window.open('../$dir_imagen', '_blank')",
                 ]
                 ]
             ],

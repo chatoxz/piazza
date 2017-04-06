@@ -6,6 +6,8 @@
  * Time: 18:42
  */
 
+use yii\helpers\Url;
+
 $this->title = 'Piazza';
 
 ?>
@@ -36,13 +38,14 @@ $this->title = 'Piazza';
 
     </div>
     <div class="col-md-4   img_fiat_plan">
-        <img src="/images/fiat_Plan.jpg" alt="">
+        <img src="/web/images/fiat_Plan.jpg" alt="">
     </div>
     <div class="plan_ahorro_modelos">
         <?php foreach ($planes as $plan){ ?>
             <div class="col-md-6 wrap_img_modelo">
-                <a href="/planes/detalles?id=<?php echo $plan->id_plan?>&id_modelos=<?php echo $plan->id_modelos ?>" title="View" aria-label="View">
-                    <img src="/images/planes/<?php
+                <?php $url = Url::toRoute(['planes/detalles', 'id' => $plan->id_plan, 'id_modelos' => $plan->id_modelos]); ?>
+                <a href="<?php echo $url ?>" title="View" aria-label="View">
+                    <img src="/web/images/planes/<?php
                             echo $plan->foto;
                     ?>" alt="">
                     <span class="nombre_modelo"><?php echo $plan->nombre ?></span>

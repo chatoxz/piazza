@@ -19,9 +19,9 @@ $this->title = 'Piazza';
             foreach ($fotos as $img){
                 if($bandera = 0){
                     $bandera = 1;
-                    echo '<li class="active"><img src="/images/modelos/'.$img->foto.'" alt=""></li>';
+                    echo '<li class="active"><img src="/web/images/modelos/'.$img->foto.'" alt=""></li>';
                 }else{
-                    echo '<li><img src="/images/modelos/'.$img->foto.'" alt=""></li>';
+                    echo '<li><img src="/web/images/modelos/'.$img->foto.'" alt=""></li>';
                 }
             } ?>
         </ul>
@@ -30,7 +30,7 @@ $this->title = 'Piazza';
             <?php
             $i = 0;
             foreach ($fotos as $img){
-                echo '<li data-slide-index="'.$i.'"><a href=""><img src="/images/modelos/'.$img->foto.'" /></a></li>';
+                echo '<li data-slide-index="'.$i.'"><a href=""><img src="/web/images/modelos/'.$img->foto.'" /></a></li>';
                 $i++;
             } ?>
         </ul>
@@ -91,7 +91,7 @@ $this->title = 'Piazza';
     </div>
     <?php if($enviado) { ?>
         <div class="alert alert-success col-md-3 consulta_enviada">
-            <strong>Excelente!</strong> Tu consulta fue enviada.
+            <strong>Excelente!</strong> Hemos recibido tu consulta.
         </div>
     <?php } ?>
 </div>

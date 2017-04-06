@@ -26,11 +26,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $this->render('/layouts/menuAdmin') ?>
 
     </p>
-    <?php $dir_imagen = '@web/../images/usados/'.$model->foto;?>
+    <?php $dir_imagen = '@web/images/usados/'.$model->foto;?>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id_usados',
+            //'id_usados',
             'nombre',
             'foto',
             [
@@ -40,7 +40,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     'width'=>'200',
                     'height'=>'200',
                     'alt' => 'Sin imagen',
-                    'onclick'=> "window.open('../$dir_imagen', '_blank')",
+                    //no me anda en el servidor no se como hacerlo andar sin el pretty url...
+                    //'onclick'=> "window.open('../$dir_imagen', '_blank')",
                 ]
                 ]
             ],

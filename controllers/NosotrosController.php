@@ -96,7 +96,7 @@ class NosotrosController extends Controller
     {
         $model = new Nosotros();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
             if($model->file = UploadedFile::getInstance($model, 'file')){
                 $model->file->saveAs('@web/../images/nosotros/' . $model->file->baseName . '.' . $model->file->extension);
                 $model->foto = $model->file->baseName. '.' . $model->file->extension;

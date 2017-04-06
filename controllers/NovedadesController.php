@@ -107,7 +107,7 @@ class NovedadesController extends Controller
     {
         $model = new Novedades();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
             if($model->file = UploadedFile::getInstance($model, 'file')){
                 $model->file->saveAs('@web/../images/novedades/' . $model->file->baseName . '.' . $model->file->extension);
                 $model->foto = $model->file->baseName. '.' . $model->file->extension;
@@ -116,6 +116,8 @@ class NovedadesController extends Controller
                 $model->file2->saveAs('@web/../images/novedades/' . $model->file2->baseName . '.' . $model->file2->extension);
                 $model->foto2 = $model->file2->baseName. '.' . $model->file2->extension;
             }
+            echo ($model->foto);
+            echo ($model->foto2);
             $model->save();
             return $this->redirect(['view', 'id' => $model->id_novedades]);
         } else {

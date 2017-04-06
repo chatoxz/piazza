@@ -105,6 +105,7 @@ class ModelosController extends Controller
         $fotos = Fotos::find()->Where(['id_tipo' => 2])->andWhere(['id' => $id])->all();
         if ($contacto->load(Yii::$app->request->post()) && $contacto->save()) {
             $enviado = 1;
+            $contacto->contact(Yii::$app->params['adminEmail']);
             return $this->render('detalles', [
                 'model' => $this->findModel($id),
                 'contacto' => $contacto,
@@ -136,7 +137,7 @@ class ModelosController extends Controller
                 $model->foto = $model->file->baseName. '.' . $model->file->extension;
             }
             $model->save();
-            return $this->redirect(['view', 'id' => $model->id_modelos]);
+            return $this->redirect(['modelos/view', 'id' => $model->id_modelos]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -160,7 +161,7 @@ class ModelosController extends Controller
                 $model->foto = $model->file->baseName. '.' . $model->file->extension;
             }
             $model->save();
-            return $this->redirect(['view', 'id' => $model->id_modelos]);
+            return $this->redirect(['modelos/view', 'id' => $model->id_modelos]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -178,11 +179,11 @@ class ModelosController extends Controller
     {
         $this->findModel($id)->delete();
         $fotos = Fotos::find()->where(['id_tipo' => '2'])->andWhere(['id' => $id])->all();
-        var_dump($fotos);
+        //var_dump($fotos);
         foreach ($fotos as $foto){
             $foto->delete();
         }
-        return $this->redirect(['index']);
+        return $this->redirect(['modelos/index']);
     }
 
     /**

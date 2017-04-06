@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
@@ -26,11 +27,12 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $this->render('/layouts/menuAdmin') ?>
 
     </p>
-    <?php $dir_imagen = '@web/../images/nosotros/'.$model->foto;?>
+    <?php $dir_imagen = '@web/images/nosotros/'.$model->foto;?>
+    <?php $href = Url::to(['../web/images/nosotros/'.$model->foto]); ?>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id_nosotros',
+            //'id_nosotros',
             'foto',
             [
                 'attribute'=>'Foto',
@@ -38,7 +40,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => ['image',[
                     'width'=>'200',
                     'alt' => 'Sin imagen',
-                    'onclick'=> "window.open('../$dir_imagen', '_blank')",
+                    //no me anda en el servidor no se como hacerlo andar sin el pretty url...
+                    //'onclick'=> "window.open('$href', '_blank')",
                 ]
                 ]
             ],

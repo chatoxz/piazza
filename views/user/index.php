@@ -37,7 +37,27 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'created_at',
             // 'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            //['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                //'header'=>'Mod/Detalle/Borrar',
+                'header'=>'Acciones',
+                'headerOptions' => ['width' => '120'],
+                'template' => '{view}',
+                'buttons' => [
+                    'view' => function ($model,$key,$index) {
+                        //$url = "?r=user%2Fview?id=".$key->id;
+                        $url = "user/view";
+                        return Html::a(
+                            '<span style="padding-right: 10px;" class="glyphicon glyphicon-eye-open"></span>', [$url, 'id'=> $key->id ]);
+                    },
+                    'update' => function ($model,$key,$index) {
+                        $url = "/user/update";
+                        return Html::a(
+                            '<span style="padding-right: 10px;" class="glyphicon glyphicon-pencil"></span>', [$url, 'id'=> $key->id ]);
+                    },
+                ],
+            ],
         ],
     ]); ?>
 </div>

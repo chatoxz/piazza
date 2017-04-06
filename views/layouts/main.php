@@ -27,8 +27,8 @@ PiazzaAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="container-fluid logos">
-    <img class="img-responsive img_logo_piazza" src="/images/LogoPiazza.png">
-    <img class="img-responsive img_logo_fiat" src="/images/LogoFiat.png">
+    <img class="img-responsive img_logo_piazza" src="/web/images/LogoPiazza.png">
+    <img class="img-responsive img_logo_fiat" src="/web/images/LogoFiat.png">
 </div>
 <div class="clearfix" style="margin: 15px 30px;color: white">
     <?php if (!Yii::$app->user->isGuest){
@@ -44,20 +44,20 @@ PiazzaAsset::register($this);
 </div>
 <div class="collapse navbar-collapse" id="myNavbar" data-spy="affix" data-offset-top="177">
     <ul class="nav navbar-nav sf-menu">
-        <li><a class="active" href="../site/index">INICIO </a></li>
-        <li><a href="/nosotros/nosotros">NOSOTROS </a></li>
-        <li><a href="/modelos/modelos">MODELOS </a></li>
-        <li><a href="/planes/planes">PLANES </a></li>
-        <li><a href="/usados/usados">USADOS </a></li>
-        <li><a href="/site/postventa">POSTVENTA </a></li>
-        <li><a href="/novedades/novedades?indice=1">NOVEDADES </a></li>
-        <li><a href="/contact/contacto">CONTACTO </a></li>
+        <li> <?= Html::a('INICIO', ['site/index']); ?></li>
+        <li> <?= Html::a('NOSOTROS', ['nosotros/nosotros']); ?></li>
+        <li> <?= Html::a('MODELOS', ['modelos/modelos']); ?></li>
+        <li> <?= Html::a('PLANES', ['planes/planes']); ?></li>
+        <li> <?= Html::a('USADOS', ['usados/usados']); ?></li>
+        <li> <?= Html::a('POSTVENTA', ['site/postventa']); ?></li>
+        <li> <?= Html::a('NOVEDADES', ['novedades/novedades', 'indice' => '1']); ?></li>
+        <li> <?= Html::a('CONTACTO', ['contact/contacto']); ?></li>
         <li>
             <?php $modelos = new \app\models\Modelos();
             $form = ActiveForm::begin(['action' =>['site/buscar'], 'method' => 'post',]); ?>
             <?php echo $form->field($modelos, 'nombre')->textInput()->label(''); ?>
             <?php ActiveForm::end(); ?>
-            </li>
+        </li>
     </ul>
 </div>
 
@@ -72,16 +72,16 @@ PiazzaAsset::register($this);
             <div class="col-md-4 redes">
                 <h4> SEGUINOS EN NUESTRAS REDES</h4>
                 <a href="https://www.facebook.com/PiazzaTucuman/?fref=ts" target="_blank">
-                    <img src="/images/icono_face.png" alt="">
+                    <img src="/web/images/icono_face.png" alt="">
                 </a>
                 <a href="https://www.instagram.com/piazzaconcesionario/" target="_blank">
-                    <img src="/images/icono_instagram.png" alt="">
+                    <img src="/web/images/icono_instagram.png" alt="">
                 </a>
                 <a href="https://www.youtube.com/channel/UC9rZN3dVH3fvpVszNdgklYg" target="_blank">
-                    <img src="/images/icono_youtube.png" alt="">
+                    <img src="/web/images/icono_youtube.png" alt="">
                 </a>
                 <a href="https://www.facebook.com/PiazzaTucuman/?fref=ts" target="_blank">
-                    <img class="data_fiscal" src="/images/data_fiscal.png" alt="">
+                    <img class="data_fiscal" src="/web/images/data_fiscal.png" alt="">
                 </a>
             </div>
             <div class="col-md-4 sucursales">

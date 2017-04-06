@@ -125,12 +125,12 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            $this->redirect(['modelos/index']);
+            $this->redirect(['/novedades/index']);
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            $this->redirect(['modelos/index']);
+            $this->redirect(['/novedades/index']);
         }
         return $this->render('login', [
             'model' => $model,
@@ -188,9 +188,9 @@ class SiteController extends Controller
     public function actionContact()
     {
         $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
+        if ($model->load(Yii::$app->request->post())) {
+            $model->contact(Yii::$app->params['adminEmail']);
+            //Yii::$app->session->setFlash('contactFormSubmitted');
             return $this->refresh();
         }
         return $this->render('contact', [

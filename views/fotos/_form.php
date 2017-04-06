@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?php
     if($model->isNewRecord ){
-        $form = ActiveForm::begin(['action' =>['fotos/create?id_tipo='.$id_tipo], 'method' => 'post',]);
+        $form = ActiveForm::begin(['action' =>['create', 'id_tipo' => $id_tipo ], 'method' => 'post',]);
         ?>
 
         <?php
@@ -102,7 +102,7 @@ use yii\widgets\ActiveForm;
                         'alt' => $model->foto ? $model->foto : 'Sin foto',
                     ];
                     if($model->foto)
-                        echo  "<a href = '../images/$carpeta/".$model->foto."' target='_blank' >".Html::img('@web/../images/'.$carpeta.'/'.$model->foto, $options). "</a>";
+                        echo  "<a href = '/images/$carpeta/".$model->foto."' target='_blank' >".Html::img('@web/images/'.$carpeta.'/'.$model->foto, $options). "</a>";
                     else
                         echo "No tiene foto" ;
                     //echo '<img src="@web/../images/alumnos/'.$model->foto.'" alt=" ' . $model->foto. ' " /> ';

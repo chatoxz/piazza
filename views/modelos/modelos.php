@@ -18,8 +18,8 @@ $this->title = 'Piazza';
         foreach ($model as $img){ ?>
             <?php if($img->convencionales != 0){ ?>
                 <div class="col-md-3 col-sm-4 wrap_modelos">
-                    <a href="/modelos/detalles?id=<?php echo $img->id_modelos ?>" title="View" aria-label="View">
-                        <img src="/images/modelos/<?php
+                    <a href="?r=modelos%2Fdetalles&id=<?php echo $img->id_modelos ?>" title="View" aria-label="View">
+                        <img src="/web/images/modelos/<?php
                         $bandera = 0;
                         foreach ($fotos as $foto){
                             if($foto->id == $img->id_modelos){

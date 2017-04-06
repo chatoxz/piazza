@@ -89,6 +89,11 @@ class PlanesController extends Controller
         $fotos = Fotos::find()->Where(['id_tipo' => 2])->andWhere(['id' => $id_modelos])->all();
         if ($contacto->load(Yii::$app->request->post()) && $contacto->save()) {
             $enviado = 1;
+            if ($contacto->contact(Yii::$app->params['adminEmail'])){
+                //var_dump($contacto->getAttributes());
+            }
+            //hago esto para que el modelo se borre y el formulario quede vacio
+            $contacto = new Contact();
             return $this->render('detalles', [
                 'model' => $this->findModel($id),
                 'contacto' => $contacto,

@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Crear Modelos', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear Modelos', ['modelos/create'], ['class' => 'btn btn-success']) ?>
         <?= $this->render('/layouts/menuAdmin') ?>
 
     </p>
@@ -49,17 +49,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 'template' => '{view}{update}{delete}{fotos}',
                 'buttons' => [
                     'view' => function ($model,$key,$index) {
-                        $url = "/modelos/view?id=".$key->id_modelos;
+                        $url = "?r=modelos%2Fview&id=".$key->id_modelos;
                         return Html::a(
                             '<span style="padding-right: 10px;" class="glyphicon glyphicon-eye-open"></span>', $url);
                     },
                     'update' => function ($model,$key,$index) {
-                        $url = "/modelos/update?id=".$key->id_modelos;
+                        $url = "?r=modelos%2Fupdate&id=".$key->id_modelos;
                         return Html::a(
                             '<span style="padding-right: 10px;" class="glyphicon glyphicon-pencil"></span>', $url);
                     },
                     'delete' => function ($model,$key,$index) {
-                        return Html::a('', ['delete', 'id' => $key->id_modelos], [
+                        return Html::a('', ['?r=modelos%2Fdelete', 'id' => $key->id_modelos], [
                             'class' => 'glyphicon glyphicon-trash',
                             'data' => [
                                 'confirm' => Yii::t('app', 'Esta seguro que desea eliminar el item? la accion es IRREVERSIBLE. ADEMAS SE BORRARAN TODAS LAS FOTOS DEL MODELO'),
@@ -68,11 +68,11 @@ $this->params['breadcrumbs'][] = $this->title;
                         ]);
                     },
                     'fotos' => function ($model,$key,$index) {
-                        $url = "/fotos/index?id_tipo=2&id_modelo=".$key->id_modelos;
+                        // ?r=novedades%2Fview&id=1
+                        $url = "?r=fotos%2Findex&id_tipo=2&id_modelo=".$key->id_modelos;
                         return Html::a(
                             '<span style="padding-right: 10px;padding-left: 10px;" class="glyphicon glyphicon-picture"></span>', $url);
                     },
-
                 ],
             ],
         ],

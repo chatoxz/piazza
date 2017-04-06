@@ -29,7 +29,7 @@ use yii\widgets\ActiveForm;
                 'alt' => $model->foto ? $model->foto : 'Sin foto',
             ];
             if($model->foto)
-                echo  "<a href = '../images/nosotros/".$model->foto."' target='_blank' >".Html::img('@web/../images/nosotros/'.$model->foto, $options). "</a>";
+                echo  "<a href = '/images/nosotros/".$model->foto."' target='_blank' >".Html::img('@web/images/nosotros/'.$model->foto, $options). "</a>";
             else
                 echo "No tiene foto" ;
             //echo '<img src="@web/../images/alumnos/'.$model->foto.'" alt=" ' . $model->foto. ' " /> ';

@@ -1,14 +1,14 @@
 @font-face {
     font-family: regular;
-    src: url("/tipografia/raleway/Raleway-Regular.ttf");
+    src: url("/web/tipografia/raleway/Raleway-Regular.ttf");
 }
 @font-face {
     font-family: bold;
-    src: url("/tipografia/raleway/Raleway-Bold.ttf");
+    src: url("/web/tipografia/raleway/Raleway-Bold.ttf");
 }
 @font-face {
     font-family: semibold;
-    src: url("/tipografia/raleway/Raleway-SemiBold.ttf");
+    src: url("/web/tipografia/raleway/Raleway-SemiBold.ttf");
 }
 
 body{
@@ -367,6 +367,7 @@ input[placeholder]:-ms-placeholder{ color:#000000; font-size:36px;}
 .consulta_enviada{
     float: right !important;
     text-align: center;
+    border-radius: 0px !important;
 }
 /*******************************FIN INDEX CONTACTO*/
 
