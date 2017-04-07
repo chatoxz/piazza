@@ -16,7 +16,7 @@ $this->title = 'Piazza';
     foreach ($slide as $img){ ?>
         <div class="col-md-3">
             <a href="<?php echo $img->link ?>" title="View" aria-label="View">
-                <img src="/images/index/<?php echo $img->foto ?>" alt="">
+                <img src="/web/images/index/<?php echo $img->foto ?>" alt="">
             </a>
         </div>
     <?php } ?>
@@ -27,13 +27,12 @@ $this->title = 'Piazza';
     foreach ($slide2 as $img){ ?>
         <li class="col-md-2 col-sm-2 col-xs-2" style="padding-left: 0px !important;padding-right: 0px !important;">
             <a href="<?php echo $img->link ?>" title="View" aria-label="View">
-                <img src="/images/index/<?php echo $img->foto ?>" alt="">
+                <img src="/web/images/index/<?php echo $img->foto ?>" alt="">
             </a>
         </li>
     <?php } ?>
 </ul>
-
-<div class="col-md-12  ">
+<div class="col-md-12 wrap_contact_home">
     <div class="col-md-6 contact">
         <h2>ENVIANOS TU CONSULTA</h2>
 
@@ -69,25 +68,25 @@ $this->title = 'Piazza';
         <?php ActiveForm::end(); ?>
     </div>
     <div class="col-md-6 wrap_img_home">
-        <img class="img-responsive img_home" src="/images/autos/6.jpg">
+        <img class="img-responsive img_home" src="/web/images/autos/6.jpg">
     </div>
 </div>
 
 <div class="col-md-12 planes_postventa">
     <div class="col-md-6" >
         <div class="wrap_planes">
-            <a style="z-index: 1" href="/planes/planes">
-               <!-- <h1>FINANCIACION DE FABRICA</h1>-->
-                <img class="img-responsive img_home_planes" src="/images/index/planes.jpg">
+            <a style="z-index: 1" href="/web/planes/planes">
+                <!-- <h1>FINANCIACION DE FABRICA</h1>-->
+                <img class="img-responsive img_home_planes" src="/web/images/index/planes.jpg">
                 <button class="btn btn-default">VER MÁS</button>
             </a>
         </div>
     </div>
     <div class="col-md-6" >
         <div class="wrap_postventa">
-            <a href="/site/postventa">
+            <a href="/web/site/postventa">
                 <!--<h1>POST VENTA</h1>-->
-                <img class="img-responsive img_home_postventa" src="/images/index/postventa.jpg">
+                <img class="img-responsive img_home_postventa" src="/web/images/index/postventa.jpg">
                 <button class="btn btn-success">
                     <span> SACÁ TURNO</span>
                     <span> ONLINE</span>
@@ -97,14 +96,14 @@ $this->title = 'Piazza';
     </div>
 </div>
 
-<a href="/novedades/novedades">
+<a href="/web/novedades/novedades">
     <div class="col-md-12 novedades">
-        <img class="img-responsive" src="/images/index/novedades.jpg">
+        <img class="img-responsive" src="/web/images/index/novedades.jpg">
         <!--<h3>NOVEDADES</h3>-->
     </div>
 </a>
 
-<div class="col-md-12" style="display: inline-block">
+<div class="col-md-12" style="display: inline-block; display: none">
     <div class="boton_newsleter">SUSCRIBITE A NUESTRO NEWSLETTER</div>
 </div>
 

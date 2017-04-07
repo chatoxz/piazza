@@ -106,26 +106,6 @@ a{
     padding: 0px !important;
 }
 
-/*.img_home {
-    z-index: -1;
-    position: relative;
-    width: 100%;
-    height: 500px;
-    max-height: 407px;
-}
-.triangulo_home:after{
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 1100px 350px 0 0;
-    border-color: #ffffff transparent transparent transparent;
-    content: '';
-    position: absolute;
-    left: 16px;
-    top: 1px;
-}*/
-
-
 /***************************CSS DEL NAV BAR*/
 
 .sf-menu, .sf-menu * {
@@ -189,7 +169,7 @@ a{
 }
 
 .navbar-header{
-    padding-left: 46%;
+    padding-left: 34%;
 }
 
 .navbar-toggle {
@@ -230,6 +210,12 @@ a{
 
 }
 
+@media (min-width: 768px) {
+    .navbar-brand{
+        display: none !important;
+    }
+}
+
 @media (max-width: 768px) {
     .sf-menu, .sf-menu * {
         list-style: circle !important;
@@ -245,6 +231,7 @@ a{
     .collapse {
         padding-left: 15px !important;
         padding-right: 15px !important;
+        overflow-y: hidden !important;
     }
     .img_fiat_plan,.img_home{
         display: none !important;
@@ -265,6 +252,7 @@ a{
     .wrap_postventa a button, .wrap_planes a button{
         font-size: 18px !important;
     }
+
 }
 
 @media (max-width: 480px) {
@@ -272,8 +260,9 @@ a{
         float: left !important;
     }
     .wrap_postventa a button, .wrap_planes a button{
-
+        font-size: 12px !important;
     }
+
 }
 /*******************************FIN CSS DEL NAV BAR*/
 
@@ -324,6 +313,9 @@ a{
 #contact-msj{
     background-color: lightgray !important;
     border-radius: 0px !important;
+}
+.wrap_contact_home{
+    margin-bottom: 45px;
 }
 
 .has-success .form-control {
