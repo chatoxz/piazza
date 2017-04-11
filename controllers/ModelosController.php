@@ -103,9 +103,11 @@ class ModelosController extends Controller
         $contacto = new Contact();
         $enviado = 0;
         $fotos = Fotos::find()->Where(['id_tipo' => 2])->andWhere(['id' => $id])->all();
-        if ($contacto->load(Yii::$app->request->post()) && $contacto->save()) {
+        if ($contacto->load(Yii::$app->request->post()) ) {
             $enviado = 1;
-            $contacto->contact(Yii::$app->params['adminEmail']);
+            $contacto->fecha = date('Y-m-d');
+            //$contacto->contact(Yii::$app->params['adminEmail']);
+            $contacto->save();
             return $this->render('detalles', [
                 'model' => $this->findModel($id),
                 'contacto' => $contacto,

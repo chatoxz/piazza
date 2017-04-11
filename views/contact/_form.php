@@ -26,6 +26,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'domicilio')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'fecha')->textInput()->input('fecha',['placeholder' => "xxxx-xx-xx"]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Crear' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

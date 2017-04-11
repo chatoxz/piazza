@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\SignupForm;
+use app\models\UserFormUpdate;
 use Yii;
 use app\models\User;
 use app\models\UserSearch;
@@ -26,7 +27,7 @@ class UserController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['login', 'error','update'],
                         'allow' => true,
                     ],
                     [
@@ -118,16 +119,20 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $model = new UserFormUpdate;
+        $model->id = $id;
+        $usuario = $this->findModel($id);
+        $model->username = $usuario->username;
+        $model->password = $usuario->password;
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->setPassword($model->password);
-            $model->email = "noneedformail@noneedformail.com";
-            $model->generateAuthKey();
-            $model->save();
+            $usuario->email = "noneedformail@noneedformail.com";
+            $usuario->setPassword($model->password);
+            $usuario->generateAuthKey();
+            $usuario->save();
             return $this->redirect(['index']);
+
         } else {
-            echo 'else';
             return $this->render('update', [
                 'model' => $model,
             ]);

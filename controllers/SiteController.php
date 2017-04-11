@@ -77,7 +77,10 @@ class SiteController extends Controller
        $slide2 = Fotos::find()->andWhere(['id_tipo' => 3]) // define que son fotos de index
             ->andWhere(['id' => 2])->all();//es el id_slide
 
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail']) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) ) {
+            //$model->contact(Yii::$app->params['adminEmail']);
+            $model->fecha = date('Y-m-d');
+            $model->save();
             return $this->refresh();
         }
         return $this->render('index', [

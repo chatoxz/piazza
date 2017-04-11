@@ -87,8 +87,10 @@ class PlanesController extends Controller
         $contacto = new Contact();
         $enviado = 0;
         $fotos = Fotos::find()->Where(['id_tipo' => 2])->andWhere(['id' => $id_modelos])->all();
-        if ($contacto->load(Yii::$app->request->post()) && $contacto->save()) {
+        if ($contacto->load(Yii::$app->request->post()) ) {
             $enviado = 1;
+            $contacto->fecha = date('Y-m-d');
+            $contacto->save();
             if ($contacto->contact(Yii::$app->params['adminEmail'])){
                 //var_dump($contacto->getAttributes());
             }

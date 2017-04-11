@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app','Crear Contact'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app','Crear Contacto'), ['create'], ['class' => 'btn btn-success']) ?>
         <?= $this->render('/layouts/menuAdmin') ?>
 
     </p>
@@ -31,7 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'msj',
             'desde',
             'hasta',
-            // 'tel',
+            'fecha',
+            'tel',
             // 'domicilio',
 
             ['class' => 'yii\grid\ActionColumn','headerOptions' => ['width' => '70'],],

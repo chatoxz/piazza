@@ -38,6 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'hasta',
             'tel',
             'domicilio',
+            'fecha',
         ],
     ]) ?>
 

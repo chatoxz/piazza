@@ -19,7 +19,7 @@ $this->title = 'Piazza';
         <?php
         foreach ($model as $img){ ?>
             <div class="col-md-4 col-sm-6  wrap_usados">
-                <img src="/images/modelos/<?php echo $img->foto ?>" alt="">
+                <img src="/web/images/usados/<?php echo $img->foto ?>" alt="">
                 <span class="descripcion_usado"><?php
                     $img->descripcion = str_replace("\n", "<br />", $img->descripcion);
                     echo $img->descripcion ?>

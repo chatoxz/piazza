@@ -52,8 +52,10 @@ class ContactController extends Controller
     public function actionContacto()
     {
         $model = new Contact();
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
             $model->contact(Yii::$app->params['adminEmail']);
+            $model->fecha = date('Y-m-d');
+            $model->save();
             return $this->refresh();
         }
         echo $model->email;

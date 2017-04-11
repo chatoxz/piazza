@@ -15,6 +15,7 @@ use Yii;
  * @property string $tel
  * @property string $domicilio
  * @property string $hasta
+ * @property string $fecha
  */
 class Contact extends \yii\db\ActiveRecord
 {
@@ -36,7 +37,8 @@ class Contact extends \yii\db\ActiveRecord
             [['email', 'nombre', 'tel', 'domicilio'], 'string', 'max' => 255],
             [['msj'], 'string', 'max' => 1000],
             [['desde', 'hasta'], 'string', 'max' => 45],
-            [['email'], 'unique'],
+            //[['email'], 'unique'],
+            [['fecha'], 'safe'],
         ];
     }
 
@@ -54,6 +56,7 @@ class Contact extends \yii\db\ActiveRecord
             'tel' => Yii::t('app', 'Tel'),
             'domicilio' => Yii::t('app', 'Domicilio'),
             'hasta' => Yii::t('app', 'Hasta'),
+            'fecha' => Yii::t('app', 'Fecha'),
         ];
     }
 

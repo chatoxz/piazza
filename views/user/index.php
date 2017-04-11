@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 //'header'=>'Mod/Detalle/Borrar',
                 'header'=>'Acciones',
                 'headerOptions' => ['width' => '120'],
-                'template' => '{view}',
+                'template' => '{view}{update}',
                 'buttons' => [
                     'view' => function ($model,$key,$index) {
                         //$url = "?r=user%2Fview?id=".$key->id;
