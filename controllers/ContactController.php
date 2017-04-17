@@ -53,7 +53,7 @@ class ContactController extends Controller
     {
         $model = new Contact();
         if ($model->load(Yii::$app->request->post())) {
-            $model->contact(Yii::$app->params['adminEmail']);
+            $model->contact(Yii::$app->params['adminEmail'], $model->email);
             $model->fecha = date('Y-m-d');
             $model->save();
             return $this->refresh();
@@ -61,11 +61,8 @@ class ContactController extends Controller
         echo $model->email;
         return $this->render('contacto', [
             'model' => $model,
-        ])
-
-            ;
+        ]);
     }
-
 
     /**
      * Lists all Contact models.

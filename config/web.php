@@ -26,12 +26,13 @@ $config = [
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'viewPath' => '@app/mail',
-            'useFileTransport' => false,
+            //'useFileTransport' => false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.gmail.com',
-                'username' => 'scarreras@unsta.edu.ar',
-                'password' => 'unsta2014',
+                'username' => 'emailsmandar',
+                'password' => 'zxchatozx',
+                //'port' => '25',
                 'port' => '587',
                 'encryption' => 'tls',
             ],

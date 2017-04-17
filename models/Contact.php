@@ -65,10 +65,11 @@ class Contact extends \yii\db\ActiveRecord
      * @param string $email the target email address
      * @return bool whether the model passes validation
      */
-    public function contact($email)
+    public function contact($mail, $email)
     {
-        if ($this->email =! ""){
-            $content  = "<p>Email: ". $this->email . "</p>";
+        if ( $this->email =! "" ) {
+            $this->setAttribute('email',$email);
+            $content  = "<p>Email: ". $email . "</p>";
             $content .= "<p>Nombre: ". $this->nombre . "</p>";
             $content .= "<p>Telefono: ". $this->tel . "</p>";
             if($this->desde != "" ) $content .= "<p>Horarios de contacto: ". $this->desde ." ".$this->hasta. "</p>";
@@ -76,7 +77,7 @@ class Contact extends \yii\db\ActiveRecord
             $content .= "<p>Mensaje: ". $this->msj . "</p>";
             if ($this->validate()) {
                 Yii::$app->mailer->compose('@app/mail/layouts/html.php', ["content" => $content])
-                    ->setTo($email)
+                    ->setTo($mail)
                     ->setFrom([$this->email => $this->nombre])
                     ->setSubject("Asunto: Contacto")
                     ->setTextBody($this->msj)

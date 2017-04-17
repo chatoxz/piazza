@@ -78,7 +78,7 @@ class SiteController extends Controller
             ->andWhere(['id' => 2])->all();//es el id_slide
 
         if ($model->load(Yii::$app->request->post()) ) {
-            //$model->contact(Yii::$app->params['adminEmail']);
+            //$model->contact(Yii::$app->params['adminEmail'], $model->email); 
             $model->fecha = date('Y-m-d');
             $model->save();
             return $this->refresh();
@@ -192,8 +192,9 @@ class SiteController extends Controller
     {
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post())) {
-            $model->contact(Yii::$app->params['adminEmail']);
+            $model->contact(Yii::$app->params['adminEmail'], $model->email); 
             //Yii::$app->session->setFlash('contactFormSubmitted');
+            $model->save();
             return $this->refresh();
         }
         return $this->render('contact', [
