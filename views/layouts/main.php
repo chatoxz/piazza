@@ -4,6 +4,7 @@
 /* @var $content string */
 
 use app\models\Fotos;
+use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;

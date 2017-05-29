@@ -27,6 +27,7 @@ window.onmousewheel = document.onmousewheel = wheel;
 // FIN CODIGO PARA QUE EL SCROLLEO DE LA PAGINA SEA SMOOTH
 
 $(document).ready(function(){
+    $(".modal").modal('show');
     //1ER SLIDER DEL HOME
     $('#bxslider1').bxSlider({
         //adaptiveHeight: true,

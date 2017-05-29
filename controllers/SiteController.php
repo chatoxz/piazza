@@ -72,21 +72,33 @@ class SiteController extends Controller
         $model = new Contact();
         Yii::$app->view->params['customParam'] = new Modelos();
         $slide = Fotos::find()->andWhere(['id_tipo' => 3]) // define que son fotos del index
-            ->andWhere(['id' => 1])->all();//es el id_slide
+        ->andWhere(['id' => 1])->all();//es el id_slide
 
-       $slide2 = Fotos::find()->andWhere(['id_tipo' => 3]) // define que son fotos de index
-            ->andWhere(['id' => 2])->all();//es el id_slide
+        $slide2 = Fotos::find()->andWhere(['id_tipo' => 3]) // define que son fotos de index
+        ->andWhere(['id' => 2])->all();//es el id_slide
 
+        $enviado = false;
         if ($model->load(Yii::$app->request->post()) ) {
-            //$model->contact(Yii::$app->params['adminEmail'], $model->email); 
+            $model->contact(Yii::$app->params['adminEmail'], $model->email);
             $model->fecha = date('Y-m-d');
             $model->save();
-            return $this->refresh();
+            
+            $model2 = new Contact();
+            $enviado = true;
+            return $this->render('index', [
+                'model' => $model2,
+                'slide' => $slide,
+                'slide2' => $slide2,
+                'enviado' => $enviado,
+            ]);
+            //return $this->refresh();
         }
+
         return $this->render('index', [
             'model' => $model,
             'slide' => $slide,
             'slide2' => $slide2,
+            'enviado' => $enviado,
         ]);
     }
 
@@ -119,7 +131,7 @@ class SiteController extends Controller
     {
         return $this->render('postventa');
     }
-  
+
     /**
      * Login action.
      *
@@ -192,7 +204,7 @@ class SiteController extends Controller
     {
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post())) {
-            $model->contact(Yii::$app->params['adminEmail'], $model->email); 
+            $model->contact(Yii::$app->params['adminEmail'], $model->email);
             //Yii::$app->session->setFlash('contactFormSubmitted');
             $model->save();
             return $this->refresh();

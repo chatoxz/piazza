@@ -745,4 +745,11 @@ input[placeholder]:-ms-placeholder{ color:#000000; font-size:36px;}
 }
 /**************************** FIN MENU ADMIN **********************************************************************/
 
+/*************************pequeña modificacion al modal de respuesta de envio de formulario de contacto ****/
+.modal-backdrop {
+    display: none;
+    z-index: -1 !important;
+}
+
+/**************** fin pequeña modificacion al modal de respuesta de envio de formulario de contacto */
 

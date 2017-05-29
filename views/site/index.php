@@ -4,11 +4,17 @@
 /* @var $model app\models\Contact */
 /* @var $form yii\widgets\ActiveForm */
 
+use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
+if ($enviado) { ?>
+    <?= $this->render('/site/modal', []);
+}
+
 $this->title = 'Piazza';
 ?>
+
 <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click para ir arriba." data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 
 <ul id="bxslider1">
@@ -128,3 +134,4 @@ $this->title = 'Piazza';
         </p>
     </div>
 </div>
+
